@@ -6,11 +6,11 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/08/10 01:46:37 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/08/10 01:58:40 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philo
+NAME = cub3D
 
 CFLAGS = -Wall -Wextra -Werror -g3 
 
