@@ -13,10 +13,17 @@
 #ifndef CUBE_H
 # define CUBE_H
 
-#include "../libraries/libft.h"
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+
+# include "../libraries/libft.h"
+
+# define WRONG_FILE "Enter a valid map"
+# define WRONG_EXTENSIONS "Enter a valid .cub file"
 
 void    file_validations(char *file);
 
-int	strict_strcmp(const char *s1, const char *s2);
+int     strict_strcmp(const char *s1, const char *s2);
 
 #endif

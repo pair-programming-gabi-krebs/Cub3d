@@ -13,13 +13,14 @@
 #include "../../includes/cube.h"
 
 static void path_validation(char *file);
+static void open_file(char *file);
 
 void    file_validations(char *file)
 {
     if (file)
     {
         path_validation(file);
-        
+        map_validation(open_file(file));
     }
 }
 
@@ -28,6 +29,16 @@ static void path_validation(char *file)
         char    *dot;
 
         dot = ft_strchr(file, '.');
-        if (!strict_cmp())
+        if (strict_strcmp(dot, ".cub"))
             ft_exit(WRONG_EXTENSIONS);
+}
+
+static void open_file(char *file)
+{
+    int fd;
+
+    fd = open(file, O_RDONLY);
+    if (!fd)
+        ft_exit(WRONG_FILE);
+    return (fd);
 }
