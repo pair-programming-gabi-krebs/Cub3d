@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:46:48 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/10 01:56:30 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/08/15 22:35:11 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int main(int argc, char **argv, char **env)
 {
+    file_validations(argv[1]);
     return (0);
 }

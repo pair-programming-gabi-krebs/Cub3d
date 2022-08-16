@@ -6,7 +6,7 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/08/10 01:58:40 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/08/15 22:30:25 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 CC = gcc
 
-VPATH = src/main src/raycasting src/utils
+VPATH = src/main
+		src/raycasting
+		src/utils
 
-FILES = main.c		
+FILES = main.c
 
 OBJ_PATH = ./objs/
 

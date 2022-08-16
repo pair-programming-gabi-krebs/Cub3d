@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube.h                                             :+:      :+:    :+:   */
+/*   file_validations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/15 22:50:07 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/08/15 22:30:39 by gcosta-d          #+#    #+#             */
+/*   Updated: 2022/08/15 22:52:49 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE_H
-# define CUBE_H
+#include "../../includes/cube.h"
 
-#include "../libraries/libft.h"
+static void path_validation(char *file);
 
-void    file_validations(char *file);
+void    file_validations(char *file)
+{
+    if (file)
+    {
+        path_validation(file);
+        
+    }
+}
 
-int	strict_strcmp(const char *s1, const char *s2);
+static void path_validation(char *file)
+{
+        char    *dot;
 
-#endif
+        dot = ft_strchr(file, '.');
+        if (!strict_cmp())
+            ft_exit(WRONG_EXTENSIONS);
+}
