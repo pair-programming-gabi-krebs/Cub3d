@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_validations.c                                 :+:      :+:    :+:   */
+/*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:30:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/15 22:52:49 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/08/16 23:21:22 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
 static void path_validation(char *file);
-static void open_file(char *file);
+static int open_file(char *file);
 
-void    file_validations(char *file)
+void	file_validations(t_cube *cube, char *file)
 {
-    if (file)
+	if (file)
     {
-        path_validation(file);
-        map_validation(open_file(file));
-    }
+    	path_validation(file);
+		content_validations(cube, open_file(file));
+	}
 }
 
 static void path_validation(char *file)
@@ -33,7 +33,7 @@ static void path_validation(char *file)
             ft_exit(WRONG_EXTENSIONS);
 }
 
-static void open_file(char *file)
+static int open_file(char *file)
 {
     int fd;
 

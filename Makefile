@@ -6,7 +6,7 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/08/15 22:30:25 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/08/16 21:36:30 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,14 @@ NAME = cub3D
 
 CFLAGS = -Wall -Wextra -Werror -g3 
 
-CC = gcc
+CC = clang
 
-VPATH = src/main
-		src/raycasting
-		src/utils
+VPATH = src/main src/map_validations src/utils
 
-FILES = main.c
+FILES = main.c \
+		file_validations.c \
+		strict_strcmp.c  \
+		ft_exit.c
 
 OBJ_PATH = ./objs/
 
@@ -32,7 +33,8 @@ $(OBJ_PATH)%.o: %.c
 all: $(NAME)
 
 $(NAME): $(OBJ_PATH) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(MAKE) -C ./libraries
+	$(CC) $(CFLAGS) $(OBJS) ./libraries/libft.a -o $(NAME)
 
 $(OBJ_PATH):
 	mkdir -p objs
