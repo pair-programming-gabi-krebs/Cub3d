@@ -6,7 +6,7 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/08/24 22:43:27 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/08/24 22:55:20 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ FILES = main.c \
 		content.c \
 		file.c \
 		ft_init.c \
-		init_window.c
+		init_window.c \
+		close_window.c
 
 OBJ_PATH = ./objs/
 
