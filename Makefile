@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/08/24 21:11:23 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/08/25 02:25:27 by lkrebs-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ FLAGS = -lmlx -lXext -lX11
 
 FILES = main.c \
 		file_validations.c \
-		strict_strcmp.c  \
+		strict_strcmp.c \
 		ft_exit.c \
-		init_window.c
-		content.c
+		init_window.c \
+		content.c \
 		file.c \
 		ft_init.c
 
