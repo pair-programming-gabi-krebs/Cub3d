@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/24 22:48:28 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:50:52 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define SO "SO"
 # define WE "WE"
 # define EA "EA"
+# define CLICK_X 17
 
 typedef struct s_cube
 {

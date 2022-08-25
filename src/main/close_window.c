@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_window.c                                      :+:      :+:    :+:   */
+/*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/24 22:50:29 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/08/24 22:52:20 by gcosta-d          #+#    #+#             */
+/*   Updated: 2022/08/24 22:53:47 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-void	init_window(t_cube *cube)
+void	close_window(t_cube *cube)
 {
-	cube->mlx_ptr = mlx_init();
-	cube->mlx_win = mlx_new_window(cube->mlx_ptr, 250, 250, "Cub3D");
-	mlx_hook(cube->mlx_win, CLICK_X, 0, close_window, cube);
-	mlx_loop(cube->mlx_ptr);
+	mlx_destroy_window(cube->mlx_ptr, cube->mlx_win);
+	mlx_destroy_display(cube->mlx_ptr);
+	free(cube->mlx_ptr);
+	exit(0);
 }
