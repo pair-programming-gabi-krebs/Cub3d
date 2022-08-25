@@ -6,7 +6,7 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/08/16 21:36:30 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/08/24 21:11:23 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,16 @@ CC = clang
 
 VPATH = src/main src/map_validations src/utils
 
+FLAGS = -lmlx -lXext -lX11
+
 FILES = main.c \
 		file_validations.c \
 		strict_strcmp.c  \
-		ft_exit.c
+		ft_exit.c \
+		init_window.c
+		content.c
+		file.c \
+		ft_init.c
 
 OBJ_PATH = ./objs/
 
@@ -34,7 +40,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_PATH) $(OBJS)
 	$(MAKE) -C ./libraries
-	$(CC) $(CFLAGS) $(OBJS) ./libraries/libft.a -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(FLAGS) ./libraries/libft.a -o $(NAME)
 
 $(OBJ_PATH):
 	mkdir -p objs

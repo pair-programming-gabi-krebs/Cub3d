@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:30:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/16 23:21:22 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/08/24 20:56:19 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void path_validation(char *file);
 static int open_file(char *file);
 
-void	file_validations(t_cube *cube, char *file)
+void	file_validations(t_cube *cube, int arguments, char *file)
 {
-	if (file)
+	if (file && arguments == 2)
     {
     	path_validation(file);
 		content_validations(cube, open_file(file));
@@ -28,7 +28,7 @@ static void path_validation(char *file)
 {
         char    *dot;
 
-        dot = ft_strchr(file, '.');
+        dot = ft_strrchr(file, '.');
         if (strict_strcmp(dot, ".cub"))
             ft_exit(WRONG_EXTENSIONS);
 }
