@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/25 02:43:37 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:43:01 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,14 @@ typedef struct s_cube
 	
 } t_cube;
 
-void	ft_exit(char *message);
-int		strict_strcmp(const char *s1, const char *s2);
-
 // Validations
 void	file_validations(t_cube *cube, int arguments, char *file);
 void	content_validations(t_cube *cube, int fd);
+
+void	init_window(t_cube *cube);
+
+// Utils
+void	ft_exit(char *message);
+int		strict_strcmp(const char *s1, const char *s2);
 
 #endif
