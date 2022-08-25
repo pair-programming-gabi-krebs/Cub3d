@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/24 22:55:10 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:59:12 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	file_validations(t_cube *cube, int arguments, char *file);
 void	content_validations(t_cube *cube, int fd);
 
 void	init_window(t_cube *cube);
-void	close_window(t_cube *cube);
+int		close_window(t_cube *cube);
 
 // Utils
 void	ft_exit(char *message);
