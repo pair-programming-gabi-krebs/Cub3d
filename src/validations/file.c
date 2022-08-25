@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:30:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/24 20:56:19 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:32:47 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	file_validations(t_cube *cube, int arguments, char *file)
     	path_validation(file);
 		content_validations(cube, open_file(file));
 	}
+	else
+		ft_exit(WRONG_FILE);
 }
 
 static void path_validation(char *file)
