@@ -6,13 +6,14 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/24 22:43:01 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:48:28 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE_H
 # define CUBE_H
 
+# include <mlx.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
