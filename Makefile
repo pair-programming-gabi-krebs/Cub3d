@@ -6,7 +6,7 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/08/27 04:29:06 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/09/01 02:25:48 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
+	$(MAKE) -C ./libs fclean
 	rm -rf $(OBJ_PATH)
 	rm -rf $(NAME)
 

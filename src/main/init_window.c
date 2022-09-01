@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/27 05:24:35 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 02:23:17 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ static int	render(t_cube *cube);
 
 void	init_window(t_cube *cube)
 {	
+	cube->mlx_ptr = NULL;
+	cube->mlx_win = NULL;
 	cube->mlx_ptr = mlx_init();
 	cube->mlx_win = mlx_new_window(cube->mlx_ptr, 250, 250, "Cub3D");
 	load_images(cube);
 	mlx_hook(cube->mlx_win, CLICK_X, 0, close_window, cube);
-	mlx_loop_hook(cube->mlx_ptr, render, &cube);
+	mlx_loop_hook(cube->mlx_ptr, render, cube);
 	mlx_loop(cube->mlx_ptr);
 }
 
