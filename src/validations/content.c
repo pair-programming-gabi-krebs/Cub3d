@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   content.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:00:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/24 21:02:09 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 23:49:38 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	textures(t_cube *cube, char *line);
 
 void	content_validations(t_cube *cube, int fd)
 {
-	char	*line;	
+	char	*line;
 
 	line = get_next_line(fd);
 	while (line)
@@ -31,7 +31,7 @@ void	content_validations(t_cube *cube, int fd)
 static void	textures(t_cube *cube, char *line)
 {
 	char	**orientation_arr;
-	
+
 	if (ft_strlen(line) > 4)
 	{
 		orientation_arr = ft_split(line, ' ');
