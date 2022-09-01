@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/27 05:23:20 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 03:59:25 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@
 # define WE "WE"
 # define EA "EA"
 # define CLICK_X 17
+# define SIZE_IMG 64
 
-# define TESTE_IMG "../assets/teste.xpm"
+# define TESTE_IMG "./assets/teste.xpm"
+# define PAREDE "./assets/parede.xpm"
 
 typedef struct s_player
 {
 	void	*testeImg;
+	void	*paredeImg;
 	int		img_width;
 	int		img_height;
 	int		pos_x;
@@ -47,6 +50,7 @@ typedef struct s_cube
 	char		*east_pattern;
 	void		*mlx_ptr;
 	void		*mlx_win;
+	char		**map;
 	t_player	player;
 }	t_cube;
 
@@ -57,6 +61,7 @@ void	content_validations(t_cube *cube, int fd);
 void	init_window(t_cube *cube);
 void	setup(t_cube *cube);
 int		close_window(t_cube *cube);
+void	game(t_cube *cube);
 
 // Utils
 void	ft_exit(char *message);
