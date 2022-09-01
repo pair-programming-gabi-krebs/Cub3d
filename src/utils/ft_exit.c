@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 21:33:36 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/08/16 21:58:21 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/02 00:00:42 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-void    ft_exit(char *message)
+void	ft_exit(char *message)
 {
 	printf("Error\n%s\n", message);
-    exit(0);    
+	exit(0);	
 }
