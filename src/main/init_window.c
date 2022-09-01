@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/01 04:04:07 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 05:02:43 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	load_images(t_cube *cube)
 {
 	cube->player.testeImg = mlx_xpm_file_to_image(cube->mlx_ptr, TESTE_IMG, &(cube->player.img_width), &(cube->player.img_height));
 	cube->player.paredeImg = mlx_xpm_file_to_image(cube->mlx_ptr, PAREDE, &(cube->player.img_width), &(cube->player.img_height));
+	cube->player.personagemImg = mlx_xpm_file_to_image(cube->mlx_ptr, PERSONAGEM, &(cube->player.img_width), &(cube->player.img_height));
 }
 
 static void	map_mock(t_cube *cube)
@@ -47,6 +48,6 @@ static void	map_mock(t_cube *cube)
 	free(cube->map[4]);
 	free(cube->map[6]);
 	cube->map[2] = ft_strdup("1111110001");
-	cube->map[4] = ft_strdup("1000P00001");
+	cube->map[4] = ft_strdup("1000N00001");
 	cube->map[6] = ft_strdup("1001111111");
 }
