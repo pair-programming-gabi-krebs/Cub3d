@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/01 05:02:43 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 05:10:35 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	map_mock(t_cube *cube)
 
 	cube->map = malloc(sizeof(char **) * 11);
 	cube->map[10] = NULL;
-	cube->map[0] = ft_strdup("1111111111");
+	
 	i = 1;
 	while (i < 9)
 	{
