@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 03:11:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/01 05:01:51 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/08 23:05:27 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,24 @@ void	game(t_cube *cube)
 }
 
 static int	render(t_cube *cube)
+{
+	put_image_to_window(cube);
+	cast_all_rays(cube);
+	return (0);
+}
+
+static void cast_all_rays(t_cube *cube)
+{
+	int		column_id;
+	double	ray_angle;
+
+	column_id = 0;
+	// colocar rotation_angle na struct
+	ray_angle = cube->player.rotation_angle - (deg_to_rad(FOV) / 2);
+	
+}
+
+static void put_image_to_window(t_cube *cube)
 {
 	int	x;
 	int	y;
@@ -45,5 +63,4 @@ static int	render(t_cube *cube)
 			}
 		}
 	}	
-	return (0);
 }
