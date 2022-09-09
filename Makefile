@@ -6,7 +6,7 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/09/01 02:25:48 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/09/01 04:48:50 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ FILES = main.c \
 		ft_init.c \
 		init_window.c \
 		close_window.c \
-		setup.c
+		setup.c \
+		game.c \
+		key_map.c
 
 OBJ_PATH = ./objs/
 

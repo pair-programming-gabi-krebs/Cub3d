@@ -6,36 +6,48 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/01 02:23:17 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 05:10:35 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
 static void	load_images(t_cube *cube);
-static int	render(t_cube *cube);
+static void	map_mock(t_cube *cube);
 
 void	init_window(t_cube *cube)
-{	
-	cube->mlx_ptr = NULL;
-	cube->mlx_win = NULL;
+{
 	cube->mlx_ptr = mlx_init();
-	cube->mlx_win = mlx_new_window(cube->mlx_ptr, 250, 250, "Cub3D");
+	cube->mlx_win = mlx_new_window(cube->mlx_ptr, 10 * SIZE_IMG, 10 * SIZE_IMG, "Cub3D");
 	load_images(cube);
-	mlx_hook(cube->mlx_win, CLICK_X, 0, close_window, cube);
-	mlx_loop_hook(cube->mlx_ptr, render, cube);
-	mlx_loop(cube->mlx_ptr);
+	map_mock(cube);
 }
 
 static void	load_images(t_cube *cube)
 {
 	cube->player.testeImg = mlx_xpm_file_to_image(cube->mlx_ptr, TESTE_IMG, &(cube->player.img_width), &(cube->player.img_height));
+	cube->player.paredeImg = mlx_xpm_file_to_image(cube->mlx_ptr, PAREDE, &(cube->player.img_width), &(cube->player.img_height));
+	cube->player.personagemImg = mlx_xpm_file_to_image(cube->mlx_ptr, PERSONAGEM, &(cube->player.img_width), &(cube->player.img_height));
 }
 
-static int	render(t_cube *cube)
+static void	map_mock(t_cube *cube)
 {
-	//mlx_put_image_to_window(cube->map.mlx_ptr, cube->map.mlx_win, cube->player.testeImg, cube->player.pos_x * 64, cube->player.pos_y * 64);
-	cube->player.pos_x += 1;
-	cube->player.pos_y += 1;
-	return (0);
+	int	i;
+
+	cube->map = malloc(sizeof(char **) * 11);
+	cube->map[10] = NULL;
+	
+	i = 1;
+	while (i < 9)
+	{
+		cube->map[i] = ft_strdup("1000000001");
+		i++;
+	}
+	cube->map[9] = ft_strdup("1111111111");
+	free(cube->map[2]);
+	free(cube->map[4]);
+	free(cube->map[6]);
+	cube->map[2] = ft_strdup("1111110001");
+	cube->map[4] = ft_strdup("1000N00001");
+	cube->map[6] = ft_strdup("1001111111");
 }
