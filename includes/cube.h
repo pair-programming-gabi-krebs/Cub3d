@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/08 23:06:57 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/09/14 05:02:40 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 # define W 119
 # define S 115
 # define D 100
+# define WINDOW_WIDTH 1000
+# define WINDOW_HEIGHT 600
 
 # define TESTE_IMG "./assets/teste.xpm"
 # define PAREDE "./assets/parede.xpm"
@@ -47,11 +49,11 @@ typedef struct s_player
 	void	*testeImg;
 	void	*paredeImg;
 	void	*personagemImg;
-	int		rotation_angle;
 	int		img_width;
 	int		img_height;
-	int		pos_x;
-	int		pos_y;
+	double	pos_x;
+	double	pos_y;
+	double	rotation_angle;
 }	t_player;
 
 
@@ -64,8 +66,6 @@ typedef struct s_cube
 	void		*mlx_ptr;
 	void		*mlx_win;
 	char		**map;
-	int			player_x;
-	int			player_y;
 	t_player	player;
 }	t_cube;
 
