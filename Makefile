@@ -6,7 +6,7 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/09/16 03:49:16 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/09/16 04:38:30 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC = clang
 
 VPATH = src/main src/validations src/utils
 
-FLAGS = -lmlx -lXext -lX11
+FLAGS = -lm -lmlx -lXext -lX11
 
 FILES = main.c \
 		strict_strcmp.c \
