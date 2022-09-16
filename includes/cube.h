@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/14 05:02:40 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/16 03:47:29 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@
 # define ESC 65307
 # define FOV 60
 # define QUIT 113
-# define KEY_PRESS 2
+# define KEY_PRESSED 2
+# define KEY_RELEASED 3
 # define A 97
 # define W 119
 # define S 115
 # define D 100
+# define ARROW_LEFT 65361
+# define ARROW_RIGHT 65363
 # define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 600
 
@@ -54,9 +57,11 @@ typedef struct s_player
 	double	pos_x;
 	double	pos_y;
 	double	rotation_angle;
+	double	turn_direction;
+	double	walk_direction;
+	double	move_speed;
+	double	rotation_speed;
 }	t_player;
-
-
 typedef struct s_cube
 {
 	char		*north_pattern;
@@ -78,10 +83,12 @@ void	init_window(t_cube *cube);
 void	setup(t_cube *cube);
 int		close_window(t_cube *cube);
 void	game(t_cube *cube);
-int		key_map(int key, t_cube *cube);
+int		key_press(int key, t_cube *cube);
+int		key_release(int key, t_cube *cube);
 
 // Utils
 void	ft_exit(char *message);
+void	ft_init(t_cube *cube);
 int		strict_strcmp(const char *s1, const char *s2);
 double	deg_to_rad(double degree);
 

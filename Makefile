@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/09/08 23:01:32 by lkrebs-l         ###   ########.fr        #
+#    Updated: 2022/09/16 03:49:16 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,9 @@ FILES = main.c \
 		close_window.c \
 		setup.c \
 		game.c \
-		key_map.c \
-		deg_to_rad.c
+		key_press.c \
+		key_release.c \
+		deg_to_rad.c \
 
 OBJ_PATH = ./objs/
 
