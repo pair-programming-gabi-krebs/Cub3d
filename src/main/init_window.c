@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/16 04:39:03 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/17 07:24:45 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 static void	map_mock(t_cube *cube);
 //static void init_map(t_cube *cube);
 static void init_player(t_cube *cube);
+static void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y);
 
 void	init_window(t_cube *cube)
 {
@@ -56,27 +57,6 @@ static void	map_mock(t_cube *cube)
 		cube->map[j] = ft_strdup(worldMap[j]);
 }
 
-// static void init_map(t_cube *cube)
-// {
-// 	int	x;
-// 	int	y;
-
-// 	y = 0;
-// 	while (cube->map[y][0])
-// 	{
-// 		x = 0;
-// 		while (cube->map[y][x])
-// 		{
-// 			if (cube->map[y][x] == '1')
-// 				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);
-// 			else if (cube->map[y][x] == '0')
-// 				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.testeImg, x * SIZE_IMG, y * SIZE_IMG);
-// 			x++;
-// 		}
-// 		y++;
-// 	}	
-// }
-
 static void init_player(t_cube *cube)
 {
 	int	x;
@@ -105,14 +85,34 @@ static void init_player(t_cube *cube)
 		}
 		y++;
 	}
-	mlx_pixel_put(cube->mlx_ptr, cube->mlx_win, (cube->player.pos_x * SIZE_IMG), (cube->player.pos_y * SIZE_IMG), 0xFF0000);
+	draw_line(cube, 
+			  cube->player.pos_x * SIZE_IMG,
+			  cube->player.pos_y * SIZE_IMG, 
+			  cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 20), 
+			  cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 20));
+}
+
+static void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y)
+{
+	double delta_x; // diferença entre o ponto inicial e o final
+	double delta_y;
+	double pixels_x; // pontos a serem desenhados
+	double pixels_y;
+	double pixels_qnt; // quantidade de pixels a ser desenhada
 	
-	int i = cube->player.pos_x * SIZE_IMG;
-	int j = cube->player.pos_y * SIZE_IMG;
-	while (i < ((cube->player.pos_x * SIZE_IMG) + (cos(90) + 20)) && j < ((cube->player.pos_y * SIZE_IMG) + (sin(90) + 20)))
+	delta_x = end_x - begin_x;
+	delta_y = end_y - begin_y;
+	pixels_qnt = sqrt((delta_x * delta_x) + (delta_y * delta_y));
+	delta_x /= pixels_qnt;
+	delta_y /= pixels_qnt;
+	pixels_x = begin_x;
+	pixels_y = begin_y;
+	while (pixels_qnt)
 	{
-		mlx_pixel_put(cube->mlx_ptr, cube->mlx_win, i, j, 0xFF0000);
-		i++;
-		j++;		
+		mlx_pixel_put(cube->mlx_ptr, cube->mlx_win, pixels_x, pixels_y, 0xFF0000);
+		pixels_x += delta_x;
+		pixels_y += delta_y;
+		pixels_qnt--;		
 	}
+	
 }
