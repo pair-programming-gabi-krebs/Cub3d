@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/17 07:24:45 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/17 08:17:30 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 static void	map_mock(t_cube *cube);
 //static void init_map(t_cube *cube);
 static void init_player(t_cube *cube);
-static void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y);
 
 void	init_window(t_cube *cube)
 {
@@ -71,7 +70,9 @@ static void init_player(t_cube *cube)
 			if (cube->map[y][x] == 'N' || cube->map[y][x] == 'W' || cube->map[y][x] == 'E' || cube->map[y][x] == 'S')
 			{
 				cube->player.pos_x = x;
+				printf("player position x %d", x);
 				cube->player.pos_y = y;
+				printf("player position y %d", y);
 			}
 			if (cube->map[y][x] == 'N')
 				cube->player.rotation_angle = deg_to_rad(90);
@@ -88,11 +89,11 @@ static void init_player(t_cube *cube)
 	draw_line(cube, 
 			  cube->player.pos_x * SIZE_IMG,
 			  cube->player.pos_y * SIZE_IMG, 
-			  cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 20), 
-			  cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 20));
+			  cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50), 
+			  cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
 }
 
-static void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y)
+void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y)
 {
 	double delta_x; // diferença entre o ponto inicial e o final
 	double delta_y;

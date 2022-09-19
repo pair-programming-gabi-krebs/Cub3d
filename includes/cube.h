@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/16 03:47:29 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/17 08:07:30 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_player
 	double	walk_direction;
 	double	move_speed;
 	double	rotation_speed;
+	int		has_updated;
 }	t_player;
 typedef struct s_cube
 {
@@ -91,5 +92,6 @@ void	ft_exit(char *message);
 void	ft_init(t_cube *cube);
 int		strict_strcmp(const char *s1, const char *s2);
 double	deg_to_rad(double degree);
+void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y);
 
 #endif
