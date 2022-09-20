@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/17 08:17:30 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/20 04:32:44 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,12 +108,11 @@ void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, doubl
 	delta_y /= pixels_qnt;
 	pixels_x = begin_x;
 	pixels_y = begin_y;
-	while (pixels_qnt)
+	while (pixels_qnt > 0)
 	{
 		mlx_pixel_put(cube->mlx_ptr, cube->mlx_win, pixels_x, pixels_y, 0xFF0000);
 		pixels_x += delta_x;
 		pixels_y += delta_y;
-		pixels_qnt--;		
+		pixels_qnt--;
 	}
-	
 }
