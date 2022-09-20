@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 04:33:29 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:11:18 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/09/20 04:23:09 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int	key_press(int key, t_cube *cube)
 		cube->player.turn_direction = -1;
 	else if (key == ARROW_RIGHT)
 		cube->player.turn_direction = +1;
+	if (key == A || key == W || key == S || key == D || key == ARROW_LEFT || key == ARROW_RIGHT)
+		cube->player.has_updated = 1;
 	return (0);
 }
