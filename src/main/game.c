@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 03:11:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:11:58 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/09/20 04:24:28 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,15 @@ static void update_player(t_cube *cube)
 
 static void render_player(t_cube *cube)
 {
-	draw_line(cube, 
-			  cube->player.pos_x * SIZE_IMG,
-			  cube->player.pos_y * SIZE_IMG, 
-			  cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50), 
-			  cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
+	if (cube->player.has_updated)
+	{
+		draw_line(cube, 
+				cube->player.pos_x * SIZE_IMG,
+				cube->player.pos_y * SIZE_IMG, 
+				cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50),
+				cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
+		cube->player.has_updated = 0;
+	}
 	//cast_all_rays(cube);
 }
 
