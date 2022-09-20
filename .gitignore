@@ -2,3 +2,5 @@ objs
 cub3D
 .vscode
 vgcore.*
+*.o
+*.a
