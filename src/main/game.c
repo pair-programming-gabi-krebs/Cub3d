@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 03:11:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:24:28 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/09/20 05:06:30 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,12 @@ static void update_player(t_cube *cube)
 	double	new_pos_y;
 
 	step = cube->player.walk_direction * cube->player.move_speed;
-	cube->player.rotation_angle += cube->player.turn_direction * \
-		cube->player.rotation_speed;
+	cube->player.rotation_angle += cube->player.turn_direction * cube->player.rotation_speed;
+	if (cube->player.rotation_angle < 0)
+		cube->player.rotation_angle += 2 * M_PI;
+	else if (cube->player.rotation_angle > 2 * M_PI)
+		cube->player.rotation_angle -= 2 * M_PI;
+	printf("cube->player.rotation_angle: %f\n", cube->player.rotation_angle);
 
 	new_pos_x = cube->player.pos_x + cos(cube->player.rotation_angle) * step;
 	new_pos_y = cube->player.pos_y + sin(cube->player.rotation_angle) * step;
@@ -53,6 +57,7 @@ static void render_player(t_cube *cube)
 {
 	if (cube->player.has_updated)
 	{
+		mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
 		draw_line(cube, 
 				cube->player.pos_x * SIZE_IMG,
 				cube->player.pos_y * SIZE_IMG, 
