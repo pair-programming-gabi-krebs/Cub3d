@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 03:11:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/22 02:51:49 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/09/22 03:18:57 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ static void update_player(t_cube *cube)
 
 	new_pos_x = cube->player.pos_x + cos(cube->player.rotation_angle) * step;
 	new_pos_y = cube->player.pos_y + sin(cube->player.rotation_angle) * step;
+	
+	cube->player.pos_x = new_pos_x;
+	cube->player.pos_y = new_pos_y;
+	printf("cube->player.pos_x: %f\ncube->player.pos_y: %f\n", cube->player.pos_x, cube->player.pos_y);
 	// todo: wall colision
 }
 
