@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/17 08:07:30 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/25 00:00:36 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,12 @@ typedef struct s_player
 	double	rotation_speed;
 	int		has_updated;
 }	t_player;
+
+typedef struct content
+{
+	char	**content;
+} t_content;
+
 typedef struct s_cube
 {
 	char		*north_pattern;
@@ -73,12 +79,13 @@ typedef struct s_cube
 	void		*mlx_win;
 	char		**map;
 	t_player	player;
+	t_content	content;
 }	t_cube;
 
 
 // Validations
 void	file_validations(t_cube *cube, int arguments, char *file);
-void	content_validations(t_cube *cube, int fd);
+void	content_validations(t_cube *cube, char *file);
 
 void	init_window(t_cube *cube);
 void	setup(t_cube *cube);
