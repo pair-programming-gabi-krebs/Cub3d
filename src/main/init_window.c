@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:32:44 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/09/24 02:14:27 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,13 @@ static void init_player(t_cube *cube)
 				printf("player position y %d", y);
 			}
 			if (cube->map[y][x] == 'N')
-				cube->player.rotation_angle = deg_to_rad(90);
-			else if (cube->map[y][x] == 'W')
-				cube->player.rotation_angle = deg_to_rad(180);
-			else if (cube->map[y][x] == 'E')
-				cube->player.rotation_angle = deg_to_rad(0);
-			else if (cube->map[y][x] == 'S')
 				cube->player.rotation_angle = deg_to_rad(270);
+			else if (cube->map[y][x] == 'W')
+				cube->player.rotation_angle = deg_to_rad(0);
+			else if (cube->map[y][x] == 'E')
+				cube->player.rotation_angle = deg_to_rad(180);
+			else if (cube->map[y][x] == 'S')
+				cube->player.rotation_angle = deg_to_rad(90);
 			x++;
 		}
 		y++;

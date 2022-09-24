@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 03:11:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/22 03:18:57 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/09/24 02:43:45 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	game(t_cube *cube)
 static int	render(t_cube *cube)
 {
 	update_player(cube);
-	render_player(cube);
+	//render_player(cube);
 	return (0);
 }
 
@@ -55,6 +55,7 @@ static void update_player(t_cube *cube)
 	cube->player.pos_y = new_pos_y;
 	printf("cube->player.pos_x: %f\ncube->player.pos_y: %f\n", cube->player.pos_x, cube->player.pos_y);
 	// todo: wall colision
+	render_player(cube);
 }
 
 static void render_player(t_cube *cube)
@@ -67,7 +68,7 @@ static void render_player(t_cube *cube)
 				cube->player.pos_y * SIZE_IMG, 
 				cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50),
 				cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
-		cube->player.has_updated = 0;
+		cube->player.has_updated = 1;
 	}
 	//cast_all_rays(cube);
 }
