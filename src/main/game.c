@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 03:11:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/24 02:43:45 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/24 04:18:32 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	render(t_cube *cube);
 //static void cast_all_rays(t_cube *cube);
 static void update_player(t_cube *cube);
 static void render_player(t_cube *cube);
+static int	is_wall(t_cube *cube, double x, double y);
+static void render_map(t_cube *cube);
 
 
 void	game(t_cube *cube)
@@ -30,7 +32,8 @@ void	game(t_cube *cube)
 static int	render(t_cube *cube)
 {
 	update_player(cube);
-	//render_player(cube);
+	render_player(cube);
+	render_map(cube);
 	return (0);
 }
 
@@ -51,26 +54,41 @@ static void update_player(t_cube *cube)
 	new_pos_x = cube->player.pos_x + cos(cube->player.rotation_angle) * step;
 	new_pos_y = cube->player.pos_y + sin(cube->player.rotation_angle) * step;
 	
-	cube->player.pos_x = new_pos_x;
-	cube->player.pos_y = new_pos_y;
+	if (!is_wall(cube, new_pos_x, new_pos_y))
+	{
+		cube->player.pos_x = new_pos_x;
+		cube->player.pos_y = new_pos_y;
+	}
 	printf("cube->player.pos_x: %f\ncube->player.pos_y: %f\n", cube->player.pos_x, cube->player.pos_y);
-	// todo: wall colision
-	render_player(cube);
 }
 
 static void render_player(t_cube *cube)
 {
-	if (cube->player.has_updated)
-	{
-		mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
-		draw_line(cube, 
-				cube->player.pos_x * SIZE_IMG,
-				cube->player.pos_y * SIZE_IMG, 
-				cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50),
-				cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
-		cube->player.has_updated = 1;
-	}
+	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
+	draw_line(cube, 
+			cube->player.pos_x * SIZE_IMG,
+			cube->player.pos_y * SIZE_IMG, 
+			cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50),
+			cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
 	//cast_all_rays(cube);
+}
+
+static int	is_wall(t_cube *cube, double x, double y)
+{
+	int x_parse;
+	int	y_parse;
+	
+	if (x < 0 || (x * SIZE_IMG) > WINDOW_WIDTH || y < 0 || (y * SIZE_IMG) > WINDOW_HEIGHT)
+		return (1);
+	x_parse = floor(x);
+	y_parse = floor(y);
+	printf("Floor x: %d\nFloor y: %d\n", x_parse, y_parse);
+	if (!cube->map[y_parse][x_parse] || cube->map[y_parse][x_parse] == '1')
+	{
+		printf("XMEN!\n");
+		return (1);
+	}
+	return (0);
 }
 
 // static void cast_all_rays(t_cube *cube)
@@ -82,3 +100,25 @@ static void render_player(t_cube *cube)
 // 	// colocar rotation_angle na struct
 // 	ray_angle = cube->player.rotation_angle - (deg_to_rad(FOV) / 2);
 // }
+
+static void render_map(t_cube *cube)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (cube->map[y][0])
+	{
+		x = 0;
+		while (cube->map[y][x])
+		{
+			if (cube->map[y][x] == '1')
+			{
+				printf("map[%d][%d]\n", y, x);
+				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);
+			}
+			x++;
+		}
+		y++;
+	}
+}
