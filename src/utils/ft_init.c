@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:22:28 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/25 06:40:55 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/25 07:55:57 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,6 @@ void	ft_init(t_cube *cube)
 	cube->content.south_pattern = NULL;
 	cube->content.west_pattern = NULL;
 	cube->content.east_pattern = NULL;
+	cube->content.floor_color = NULL;
+	cube->content.ceil_color = NULL;
 }

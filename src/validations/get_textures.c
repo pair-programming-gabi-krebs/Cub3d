@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 06:43:08 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/25 07:49:34 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/25 07:52:16 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	get_textures(t_cube *cube)
 			get_texture(&cube->content.west_pattern, cube->content.content[i]);
 		i++;
 	}
-	printf("NO %s\n", cube->content.north_pattern);
-	printf("SO %s\n", cube->content.south_pattern);
-	printf("EA %s\n", cube->content.east_pattern);
-	printf("WE %s\n", cube->content.west_pattern);
+	printf("NO %s", cube->content.north_pattern);
+	printf("SO %s", cube->content.south_pattern);
+	printf("EA %s", cube->content.east_pattern);
+	printf("WE %s", cube->content.west_pattern);
 }
 
 static void	get_texture(char **orientation, char *texture)

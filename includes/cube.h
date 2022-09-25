@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/25 07:10:45 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/25 07:55:43 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct content
 	char	*south_pattern;
 	char	*west_pattern;
 	char	*east_pattern;
+	char	*floor_color;
+	char	*ceil_color;
 } t_content;
 
 typedef struct s_cube
@@ -87,6 +89,7 @@ typedef struct s_cube
 void	file_validations(t_cube *cube, int arguments, char *file);
 void	content_validations(t_cube *cube, char *file);
 void	get_textures(t_cube *cube);
+void	get_colors(t_cube *cube);
 
 void	init_window(t_cube *cube);
 void	setup(t_cube *cube);

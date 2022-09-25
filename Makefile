@@ -6,7 +6,7 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/09/25 07:15:12 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/09/25 07:58:15 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ FILES = main.c \
 		key_release.c \
 		deg_to_rad.c \
 		get_textures.c \
+		get_colors.c \
 		ft_is_space.c
 
 OBJ_PATH = ./objs/

@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:00:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/25 06:44:02 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/25 07:52:51 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	content_validations(t_cube *cube, char *file)
 {
 	copy_file(cube, file);
 	get_textures(cube);
-	//get_colors(cube);
+	get_colors(cube);
 	//get_map(cube);
 }
 
