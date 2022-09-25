@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:00:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/25 00:26:20 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/25 06:44:02 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@
 //static void	check_content(cube, line);
 static int	count_lines(char *file);
 static int	open_file(char *file);
-static void	copy_map(t_cube *cube, char *file);
+static void	copy_file(t_cube *cube, char *file);
 
 void	content_validations(t_cube *cube, char *file)
 {
-	copy_map(cube, file);
+	copy_file(cube, file);
+	get_textures(cube);
+	//get_colors(cube);
+	//get_map(cube);
 }
 
-static void	copy_map(t_cube *cube, char *file)
+static void	copy_file(t_cube *cube, char *file)
 {
 	char	*line;
 	int		lines;

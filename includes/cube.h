@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/25 00:00:36 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/25 07:10:45 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ typedef struct s_player
 typedef struct content
 {
 	char	**content;
+	char	*north_pattern;
+	char	*south_pattern;
+	char	*west_pattern;
+	char	*east_pattern;
 } t_content;
 
 typedef struct s_cube
 {
-	char		*north_pattern;
-	char		*south_pattern;
-	char		*west_pattern;
-	char		*east_pattern;
 	void		*mlx_ptr;
 	void		*mlx_win;
 	char		**map;
@@ -86,6 +86,7 @@ typedef struct s_cube
 // Validations
 void	file_validations(t_cube *cube, int arguments, char *file);
 void	content_validations(t_cube *cube, char *file);
+void	get_textures(t_cube *cube);
 
 void	init_window(t_cube *cube);
 void	setup(t_cube *cube);
@@ -100,5 +101,6 @@ void	ft_init(t_cube *cube);
 int		strict_strcmp(const char *s1, const char *s2);
 double	deg_to_rad(double degree);
 void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y);
+int		ft_is_space(char c);
 
 #endif
