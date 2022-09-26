@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/27 00:16:09 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/27 00:54:57 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	content_validations(t_cube *cube, char *file);
 void	get_textures(t_cube *cube);
 void	get_colors(t_cube *cube);
 void	get_map(t_cube *cube);
+int		check_map(t_cube *cube);
 
 void	init_window(t_cube *cube);
 void	setup(t_cube *cube);
@@ -115,6 +116,7 @@ void	ft_init(t_cube *cube);
 int		strict_strcmp(const char *s1, const char *s2);
 double	deg_to_rad(double degree);
 void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y);
-int		ft_is_space(char c);
+int		ft_is_space(unsigned int i, char *s);
+int		ft_striteri_check(char *s, int (*f)(unsigned int, char *));
 
 #endif

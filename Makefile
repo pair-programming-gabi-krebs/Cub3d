@@ -6,7 +6,7 @@
 #    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/09/27 00:16:36 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/09/27 00:46:43 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,9 @@ FILES = main.c \
 		get_colors.c \
 		get_map.c \
 		set_map.c \
-		ft_is_space.c
+		check_map.c \
+		ft_is_space.c \
+		ft_striteri_check.c
 
 OBJ_PATH = ./objs/
 
