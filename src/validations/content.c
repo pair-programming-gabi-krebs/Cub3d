@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:00:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/25 07:52:51 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/26 23:58:28 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,17 @@
 static int	count_lines(char *file);
 static int	open_file(char *file);
 static void	copy_file(t_cube *cube, char *file);
+static int	check_textures(t_cube *cube);
+static int	check_colors(t_cube *cube);
 
 void	content_validations(t_cube *cube, char *file)
 {
 	copy_file(cube, file);
 	get_textures(cube);
 	get_colors(cube);
-	//get_map(cube);
+	if (!check_textures(cube) && !check_colors(cube))
+		ft_exit(WRONG_CONTENT);
+	get_map(cube);
 }
 
 static void	copy_file(t_cube *cube, char *file)
@@ -34,6 +38,7 @@ static void	copy_file(t_cube *cube, char *file)
 	int		i;
 
 	lines = count_lines(file);
+	cube->content.total_lines = lines;
 	cube->content.content = malloc(sizeof(char*) * (lines + 1));
 	fd = open_file(file);
 	line = get_next_line(fd);
@@ -75,6 +80,24 @@ static int open_file(char *file)
 	if (!fd)
 		ft_exit(WRONG_FILE);
 	return (fd);
+}
+
+static int	check_textures(t_cube *cube)
+{
+	if (cube->content.north_pattern != NULL
+		&& cube->content.south_pattern != NULL
+		&& cube->content.west_pattern != NULL
+		&& cube->content.east_pattern != NULL)
+		return (1);
+	return (0);
+}
+
+static int	check_colors(t_cube *cube)
+{
+	if (cube->content.floor_color != NULL
+		&& cube->content.ceil_color != NULL)
+		return (1);
+	return (0);
 }
 
 // static void	check_content(cube, line)
