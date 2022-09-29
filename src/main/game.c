@@ -83,7 +83,7 @@ static int	is_wall(t_cube *cube, double x, double y)
 	x_parse = floor(x);
 	y_parse = floor(y);
 	printf("Floor x: %d\nFloor y: %d\n", x_parse, y_parse);
-	if (!cube->map[y_parse][x_parse] || cube->map[y_parse][x_parse] == '1')
+	if (!cube->map2[y_parse][x_parse] || cube->map2[y_parse][x_parse] == '1')
 	{
 		printf("XMEN!\n");
 		return (1);
@@ -107,12 +107,12 @@ static void render_map(t_cube *cube)
 	int	y;
 
 	y = 0;
-	while (cube->map[y][0])
+	while (cube->map2[y][0])
 	{
 		x = 0;
-		while (cube->map[y][x])
+		while (cube->map2[y][x])
 		{
-			if (cube->map[y][x] == '1')
+			if (cube->map2[y][x] == '1')
 			{
 				printf("map[%d][%d]\n", y, x);
 				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);
