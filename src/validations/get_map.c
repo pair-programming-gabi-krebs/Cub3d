@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 23:22:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/27 00:14:13 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/29 02:31:57 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,10 @@ static void	copy_map(t_cube *cube, int line)
 	i = 0;
 	while (cube->content.content[line])
 	{
+		printf("%s", cube->content.content[line]);
 		cube->map.map[i] = ft_strdup(cube->content.content[line]);
 		i++;
-		line--;
+		line++;
 	}
 	cube->map.map[i] = NULL;
 }
