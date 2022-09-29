@@ -50,10 +50,10 @@ static void	map_mock(t_cube *cube)
 		{'\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0'},
 	};
 	
-	cube->map = malloc(sizeof(char*) * 11);
-	cube->map[0] = NULL;
+	cube->map2 = malloc(sizeof(char*) * 11);
+	cube->map2[0] = NULL;
 	for (int j = 0; j < 11; j++)
-		cube->map[j] = ft_strdup(worldMap[j]);
+		cube->map2[j] = ft_strdup(worldMap[j]);
 }
 
 static void init_player(t_cube *cube)
@@ -62,25 +62,25 @@ static void init_player(t_cube *cube)
 	int	y;
 
 	y = 0;
-	while (cube->map[y][0])
+	while (cube->map2[y][0])
 	{
 		x = 0;
-		while (cube->map[y][x])
+		while (cube->map2[y][x])
 		{
-			if (cube->map[y][x] == 'N' || cube->map[y][x] == 'W' || cube->map[y][x] == 'E' || cube->map[y][x] == 'S')
+			if (cube->map2[y][x] == 'N' || cube->map2[y][x] == 'W' || cube->map2[y][x] == 'E' || cube->map2[y][x] == 'S')
 			{
 				cube->player.pos_x = x;
 				printf("player position x %d", x);
 				cube->player.pos_y = y;
 				printf("player position y %d", y);
 			}
-			if (cube->map[y][x] == 'N')
+			if (cube->map2[y][x] == 'N')
 				cube->player.rotation_angle = deg_to_rad(270);
-			else if (cube->map[y][x] == 'W')
+			else if (cube->map2[y][x] == 'W')
 				cube->player.rotation_angle = deg_to_rad(0);
-			else if (cube->map[y][x] == 'E')
+			else if (cube->map2[y][x] == 'E')
 				cube->player.rotation_angle = deg_to_rad(180);
-			else if (cube->map[y][x] == 'S')
+			else if (cube->map2[y][x] == 'S')
 				cube->player.rotation_angle = deg_to_rad(90);
 			x++;
 		}
@@ -123,12 +123,12 @@ static void init_map(t_cube *cube)
 	int	y;
 
 	y = 0;
-	while (cube->map[y][0])
+	while (cube->map2[y][0])
 	{
 		x = 0;
-		while (cube->map[y][x])
+		while (cube->map2[y][x])
 		{
-			if (cube->map[y][x] == '1')
+			if (cube->map2[y][x] == '1')
 			{
 				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);
 			}
