@@ -14,5 +14,5 @@
 
 void	set_map(t_cube *cube)
 {
-	
+	printf("%d", cube->content.total_lines);	
 }

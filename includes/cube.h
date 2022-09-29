@@ -88,6 +88,7 @@ typedef struct s_cube
 	void		*mlx_ptr;
 	void		*mlx_win;
 	//char		**map;
+	char		**map2;
 	t_player	player;
 	t_content	content;
 	t_map		map;

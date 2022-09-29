@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_colors.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 07:53:03 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/26 23:47:02 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/09/29 02:32:14 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	get_colors(t_cube *cube)
 		}
 		i++;
 	}
-	printf("F %s", cube->content.floor_color);
-	printf("C %s", cube->content.ceil_color);
+	//printf("F %s", cube->content.floor_color);
+	//printf("C %s", cube->content.ceil_color);
 }
 
 static void get_color(char **orientation, char *color)

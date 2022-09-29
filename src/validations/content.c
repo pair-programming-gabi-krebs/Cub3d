@@ -19,7 +19,6 @@ static int	open_file(char *file);
 static void	copy_file(t_cube *cube, char *file);
 static int	check_textures(t_cube *cube);
 static int	check_colors(t_cube *cube);
-static int	check_map(t_cube *cube);
 
 void	content_validations(t_cube *cube, char *file)
 {
