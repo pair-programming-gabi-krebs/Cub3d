@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 00:45:05 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/29 04:18:51 by coder            ###   ########.fr       */
+/*   Updated: 2022/09/30 02:54:00 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	check_first_row(t_cube *cube);
 static int	check_last_row(t_cube *cube);
 static int	check_valid_chars(char *s);
 static int	map_last_line(t_cube *cube);
-//static int	check_body(t_cube *cube);
+static int	check_body(t_cube *cube);
 
 
 int	check_map(t_cube *cube)
