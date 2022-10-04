@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   file_validations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:30:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/24 23:58:13 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/10/05 02:31:57 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
-
-static void path_validation(char *file);
+#include "../../../includes/cube.h"
 
 void	file_validations(t_cube *cube, int arguments, char *file)
 {
@@ -23,13 +21,4 @@ void	file_validations(t_cube *cube, int arguments, char *file)
 	}
 	else
 		ft_exit(WRONG_FILE);
-}
-
-static void path_validation(char *file)
-{
-	char	*dot;
-
-	dot = ft_strrchr(file, '.');
-	if (strict_strcmp(dot, ".cub"))
-		ft_exit(WRONG_EXTENSIONS);
 }

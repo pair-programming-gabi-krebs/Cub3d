@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri_check.c                                :+:      :+:    :+:   */
+/*   count_lines.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 00:35:03 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/05 02:43:53 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/05 02:42:57 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/05 02:43:16 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	ft_striteri_check(char *s, int (*f)(unsigned int, char *))
+int	count_lines(char *file)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (s[i])
+	char	*line;
+	int		count;
+	int		fd;
+	
+	fd = open_file(file);
+	count = 0;
+	line = get_next_line(fd);
+	while (line)
 	{
-		printf("s[%d]: %d\n", i, s[i]);
-		if (s[i] != 32 && !(s[i] >= 9 && s[i] <= 13) && s[i] != 49)
-		{
-			return (0);
-		}
-		if (!f(i, &s[i]))
-			printf("hoi\n");
-		i++;
+		count++;
+		free(line);
+		line = get_next_line(fd);
 	}
-	return (1);
+	close(fd);
+	return (count);
 }

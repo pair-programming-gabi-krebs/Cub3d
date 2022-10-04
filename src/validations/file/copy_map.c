@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri_check.c                                :+:      :+:    :+:   */
+/*   copy_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 00:35:03 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/05 02:43:53 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/05 02:38:51 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/05 02:39:12 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	ft_striteri_check(char *s, int (*f)(unsigned int, char *))
+void	copy_map(t_cube *cube, int line)
 {
-	unsigned int	i;
-
+	int	i;
+	
+	cube->map.map = malloc(sizeof(char*) * (cube->content.total_lines + 1));
 	i = 0;
-	while (s[i])
+	while (cube->content.content[line])
 	{
-		printf("s[%d]: %d\n", i, s[i]);
-		if (s[i] != 32 && !(s[i] >= 9 && s[i] <= 13) && s[i] != 49)
-		{
-			return (0);
-		}
-		if (!f(i, &s[i]))
-			printf("hoi\n");
+		printf("%s", cube->content.content[line]);
+		cube->map.map[i] = ft_strdup(cube->content.content[line]);
 		i++;
+		line++;
 	}
-	return (1);
+	cube->map.map[i] = NULL;
 }

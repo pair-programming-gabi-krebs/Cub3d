@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri_check.c                                :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 00:35:03 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/05 02:43:53 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/09/27 00:45:05 by gcosta-d          #+#    #+#             */
+/*   Updated: 2022/10/05 02:10:37 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	ft_striteri_check(char *s, int (*f)(unsigned int, char *))
+int	check_map(t_cube *cube)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		printf("s[%d]: %d\n", i, s[i]);
-		if (s[i] != 32 && !(s[i] >= 9 && s[i] <= 13) && s[i] != 49)
-		{
-			return (0);
-		}
-		if (!f(i, &s[i]))
-			printf("hoi\n");
-		i++;
-	}
-	return (1);
+	if (check_first_row(cube) 
+		&& check_last_row(cube)
+		&& check_around_body(cube)
+		&& check_around_spaces(cube))
+		return (1);
+	return (0);
 }

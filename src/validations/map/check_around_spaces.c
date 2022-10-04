@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri_check.c                                :+:      :+:    :+:   */
+/*   check_around_spaces.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 00:35:03 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/05 02:43:53 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/05 02:07:39 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/05 02:07:54 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	ft_striteri_check(char *s, int (*f)(unsigned int, char *))
+int check_around_spaces(t_cube *cube)
 {
-	unsigned int	i;
+	int		i;
+	int		j;
+	
 
 	i = 0;
-	while (s[i])
+	while (cube->map.map[i])
 	{
-		printf("s[%d]: %d\n", i, s[i]);
-		if (s[i] != 32 && !(s[i] >= 9 && s[i] <= 13) && s[i] != 49)
+		j = 0;
+		while (cube->map.map[i][j])
 		{
-			return (0);
+			if (!check_space(cube, i , j))
+			{
+				printf("ok n\n");
+				return (0);
+			}
+			j++;
 		}
-		if (!f(i, &s[i]))
-			printf("hoi\n");
 		i++;
 	}
 	return (1);

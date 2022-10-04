@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri_check.c                                :+:      :+:    :+:   */
+/*   check_last_row.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 00:35:03 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/05 02:43:53 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/05 02:02:58 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/05 02:03:25 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	ft_striteri_check(char *s, int (*f)(unsigned int, char *))
+int	check_last_row(t_cube *cube)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (s[i])
+	if (!check_valid_chars_line(cube->map.map[map_last_line(cube)]))
 	{
-		printf("s[%d]: %d\n", i, s[i]);
-		if (s[i] != 32 && !(s[i] >= 9 && s[i] <= 13) && s[i] != 49)
-		{
-			return (0);
-		}
-		if (!f(i, &s[i]))
-			printf("hoi\n");
-		i++;
+		printf("parei no last row\n");
+		return (0);
 	}
 	return (1);
 }

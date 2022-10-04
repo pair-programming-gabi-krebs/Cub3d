@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri_check.c                                :+:      :+:    :+:   */
+/*   check_valid_chars_line.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 00:35:03 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/05 02:43:53 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/05 02:00:54 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/05 02:01:24 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	ft_striteri_check(char *s, int (*f)(unsigned int, char *))
+int	check_valid_chars_line(char *s)
 {
-	unsigned int	i;
-
+	int	i;
+	
 	i = 0;
-	while (s[i])
+	while (s[i] && s[i] != '\n')
 	{
-		printf("s[%d]: %d\n", i, s[i]);
 		if (s[i] != 32 && !(s[i] >= 9 && s[i] <= 13) && s[i] != 49)
-		{
 			return (0);
-		}
-		if (!f(i, &s[i]))
-			printf("hoi\n");
 		i++;
 	}
 	return (1);

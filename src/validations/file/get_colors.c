@@ -6,11 +6,11 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 07:53:03 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/30 02:44:00 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/05 02:36:41 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
 static void get_color(char **orientation, char *color);
 
