@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:00:54 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/05 02:01:24 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/05 18:23:22 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_valid_chars_line(char *s)
 {
 	int	i;
-	
+
 	i = 0;
 	while (s[i] && s[i] != '\n')
 	{
