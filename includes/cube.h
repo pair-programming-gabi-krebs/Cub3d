@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/27 00:54:57 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/10/05 02:12:52 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,16 @@ void	get_textures(t_cube *cube);
 void	get_colors(t_cube *cube);
 void	get_map(t_cube *cube);
 int		check_map(t_cube *cube);
+int		check_first_row(t_cube *cube);
+int		check_valid_chars_line(char *s);
+int		check_valid_char(char chr);
+int		check_last_row(t_cube *cube);
+int		map_last_line(t_cube *cube);
+int		map_last_line(t_cube *cube);
+int		check_around_body(t_cube *cube);
+int		check_around_spaces(t_cube *cube);
+int		check_space(t_cube *cube, int i, int j);
+
 
 void	init_window(t_cube *cube);
 void	setup(t_cube *cube);
@@ -112,6 +122,7 @@ int		key_release(int key, t_cube *cube);
 void	set_map(t_cube *cube);
 
 // Utils
+void	parse_line(char **str, char *arg);
 void	ft_exit(char *message);
 void	ft_init(t_cube *cube);
 int		strict_strcmp(const char *s1, const char *s2);

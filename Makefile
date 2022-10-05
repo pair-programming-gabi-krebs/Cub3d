@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/09/27 00:46:43 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/10/05 02:13:06 by lkrebs-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,15 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 CC = clang
 
-VPATH = src/main src/validations src/utils
+VPATH = src/main src/validations src/utils src/validations/map
 
 FLAGS = -lm -lmlx -lXext -lX11
 
 FILES = main.c \
 		strict_strcmp.c \
 		ft_exit.c \
-		content.c \
-		file.c \
+		content_validations.c \
+		file_validations.c \
 		ft_init.c \
 		init_window.c \
 		close_window.c \
@@ -37,9 +37,18 @@ FILES = main.c \
 		get_colors.c \
 		get_map.c \
 		set_map.c \
-		check_map.c \
 		ft_is_space.c \
-		ft_striteri_check.c
+		ft_striteri_check.c \
+		check_around_body.c \
+		check_around_spaces.c \
+		check_first_row.c \
+		check_last_row.c \
+		check_map.c \
+		check_valid_chars_line.c \
+		check_valid_char.c \
+		check_space.c \
+		map_last_line.c \
+		parse_line.c 
 
 OBJ_PATH = ./objs/
 
