@@ -6,7 +6,7 @@
 #    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/10/05 02:52:04 by lkrebs-l         ###   ########.fr        #
+#    Updated: 2022/10/05 06:59:46 by lkrebs-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ FILES = main.c \
 		set_map.c \
 		ft_is_space.c \
 		ft_striteri_check.c \
-		check_around_body.c \
+		check_body.c \
 		check_around_spaces.c \
 		check_first_row.c \
 		check_last_row.c \
@@ -48,7 +48,7 @@ FILES = main.c \
 		check_valid_char.c \
 		check_space.c \
 		map_last_line.c \
-		parse_line.c \
+		trim_line.c \
 		copy_file.c \
 		copy_map.c \
 		get_first_map_line.c \
@@ -56,7 +56,9 @@ FILES = main.c \
 		check_colors.c \
 		check_textures.c \
 		count_lines.c \
-		open_file.c
+		open_file.c \
+		parse_line.c \
+		check_border_line.c
 
 OBJ_PATH = ./objs/
 
