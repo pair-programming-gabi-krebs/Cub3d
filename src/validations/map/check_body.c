@@ -1,41 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_around_body.c                                :+:      :+:    :+:   */
+/*   check_body.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:06:49 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/05 02:07:08 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/05 05:22:28 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cube.h"
 
-int	check_around_body(t_cube *cube)
+/* static int end_of_file(char **map); */
+
+int	check_body(t_cube *cube)
 {
 	int		len;
 	int		i;
-
-	char	*string_dup;
+	char	*line;
 
 	i = 1;
 	while (cube->map.map[i])
 	{
-		string_dup = ft_strdup(cube->map.map[i]);
-		parse_line(&string_dup, " ");
-		parse_line(&string_dup, "\t");
-		parse_line(&string_dup, "\r");
-		parse_line(&string_dup, "\n");
-		len = ft_strlen(string_dup);
-		printf("%s\n", string_dup);
-		if ((string_dup[0] && string_dup[len - 1]) && (string_dup[0] != '1' || \
-			string_dup[len - 1] != '1'))
+		line = ft_strdup(cube->map.map[i]);
+
+		len = ft_strlen(line) - 1;
+		parse_line(&line);
+		if ((!line[0] || !line[len - 1]) || (line[0] != '1' || \
+			line[len - 1] != '1'))
 		{
-			printf("parei no body row: %d\n", i);
+			free(line);
 			return (0);
+		}
+		free(line);
+		i++;
+	}
+	
+	return (1);
+}
+
+/* static int end_of_file(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'EOF')
+			j++;
 		}
 		i++;
 	}
-	return (1);
 }
+ */
