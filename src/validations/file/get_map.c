@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 23:22:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/29 02:31:57 by coder            ###   ########.fr       */
+/*   Updated: 2022/10/05 02:39:03 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
-
-static int	get_first_map_line(t_cube *cube);
-static void	copy_map(t_cube *cube, int line);
+#include "../../../includes/cube.h"
 
 void	get_map(t_cube *cube)
 {
@@ -23,34 +20,4 @@ void	get_map(t_cube *cube)
 	if (line == 0)
 		ft_exit(WRONG_MAP);
 	copy_map(cube, line);
-}
-
-static int	get_first_map_line(t_cube *cube)
-{
-	int	line;
-
-	line = cube->content.last_color_line + 1;
-	while (cube->content.content[line])
-	{
-		if (ft_strchr(cube->content.content[line], '1'))
-			return (line);
-		line++;
-	}
-	return (0);
-}
-
-static void	copy_map(t_cube *cube, int line)
-{
-	int	i;
-	
-	cube->map.map = malloc(sizeof(char*) * (cube->content.total_lines + 1));
-	i = 0;
-	while (cube->content.content[line])
-	{
-		printf("%s", cube->content.content[line]);
-		cube->map.map[i] = ft_strdup(cube->content.content[line]);
-		i++;
-		line++;
-	}
-	cube->map.map[i] = NULL;
 }
