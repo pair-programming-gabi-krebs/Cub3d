@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:38:51 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/05 02:39:12 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/05 03:05:08 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	copy_map(t_cube *cube, int line)
 	i = 0;
 	while (cube->content.content[line])
 	{
-		printf("%s", cube->content.content[line]);
 		cube->map.map[i] = ft_strdup(cube->content.content[line]);
 		i++;
 		line++;
