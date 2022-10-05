@@ -6,7 +6,7 @@
 #    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/10/05 02:13:06 by lkrebs-l         ###   ########.fr        #
+#    Updated: 2022/10/05 02:52:04 by lkrebs-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 CC = clang
 
-VPATH = src/main src/validations src/utils src/validations/map
+VPATH = src/main src/validations src/utils src/validations/map src/validations/file
 
 FLAGS = -lm -lmlx -lXext -lX11
 
@@ -48,7 +48,15 @@ FILES = main.c \
 		check_valid_char.c \
 		check_space.c \
 		map_last_line.c \
-		parse_line.c 
+		parse_line.c \
+		copy_file.c \
+		copy_map.c \
+		get_first_map_line.c \
+		path_validation.c \
+		check_colors.c \
+		check_textures.c \
+		count_lines.c \
+		open_file.c
 
 OBJ_PATH = ./objs/
 

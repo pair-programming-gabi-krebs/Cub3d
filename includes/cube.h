@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/05 02:12:52 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/05 02:47:32 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,12 @@ int		map_last_line(t_cube *cube);
 int		check_around_body(t_cube *cube);
 int		check_around_spaces(t_cube *cube);
 int		check_space(t_cube *cube, int i, int j);
-
-
+void	copy_file(t_cube *cube, char *file);
+void	path_validation(char *file);
+int		get_first_map_line(t_cube *cube);
+int		count_lines(char *file);
+int		open_file(char *file);
+int		count_lines(char *file);
 void	init_window(t_cube *cube);
 void	setup(t_cube *cube);
 int		close_window(t_cube *cube);
@@ -120,6 +124,9 @@ void	game(t_cube *cube);
 int		key_press(int key, t_cube *cube);
 int		key_release(int key, t_cube *cube);
 void	set_map(t_cube *cube);
+int		check_textures(t_cube *cube);
+int		check_colors(t_cube *cube);
+void	copy_map(t_cube *cube, int line);
 
 // Utils
 void	parse_line(char **str, char *arg);
