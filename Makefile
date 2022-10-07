@@ -6,7 +6,7 @@
 #    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/10/05 06:59:46 by lkrebs-l         ###   ########.fr        #
+#    Updated: 2022/10/08 02:14:53 by lkrebs-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,12 @@ FILES = main.c \
 		count_lines.c \
 		open_file.c \
 		parse_line.c \
-		check_border_line.c
+		check_border_line.c \
+		equalize_map.c \
+		strjoin_spaces.c \
+		biggest_str.c \
+		check_line.c \
+		free_matrix.c
 
 OBJ_PATH = ./objs/
 

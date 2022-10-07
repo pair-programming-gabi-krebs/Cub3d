@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:29:36 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/05 02:29:48 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/08 02:09:16 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	copy_file(t_cube *cube, char *file)
 	int		fd;
 	int		i;
 
-	lines = count_lines(file);
+	lines = count_lines(cube, file);
 	cube->content.total_lines = lines;
 	cube->content.content = malloc(sizeof(char*) * (lines + 1));
-	fd = open_file(file);
+	fd = open_file(cube, file);
 	line = get_next_line(fd);
 	i = 0;
 	while (line)

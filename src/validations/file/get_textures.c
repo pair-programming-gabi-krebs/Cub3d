@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 06:43:08 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/05 02:30:59 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/08 02:26:19 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ static void	get_texture(char **orientation, char *texture)
 
 	texture_mapped = ft_split(texture, ' ');
 	*orientation = ft_strdup(texture_mapped[1]);
+	free_matrix(texture_mapped);
 }

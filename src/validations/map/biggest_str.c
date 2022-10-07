@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_body.c                                       :+:      :+:    :+:   */
+/*   biggest_str.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 02:06:49 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/08 02:00:22 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/08 01:58:48 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/08 01:59:30 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cube.h"
 
-int	check_body(t_cube *cube)
+size_t	biggest_str(char **map)
 {
-	int		i;
-	char	*line;
+	size_t	str_len;
+	int	i;
 
-	equalize_map(cube->map.map);
 	i = 0;
-	while (cube->map.map[i])
+	str_len = ft_strlen(map[i]);
+	while (map[++i])
 	{
-		line = ft_strdup(cube->map.map[i]);
-		parse_line(&line);
-		if (check_border_line(line) || !check_line(cube, i, cube->map.map[i]))
-			return (0);
-		free(line);
-		i++;
+		if (ft_strlen(map[i]) > str_len)
+			str_len = ft_strlen(map[i]);
 	}
-	return (1);
+	return (str_len);
 }

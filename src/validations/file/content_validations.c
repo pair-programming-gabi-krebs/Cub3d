@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:00:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/05 02:46:23 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/08 02:10:19 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	content_validations(t_cube *cube, char *file)
 	get_textures(cube);
 	get_colors(cube);
 	if (!check_textures(cube) && !check_colors(cube))
-		ft_exit(WRONG_CONTENT);
+		ft_exit(cube, WRONG_CONTENT);
 	get_map(cube);
 	if (!check_map(cube))
-		ft_exit(WRONG_MAP);
+		ft_exit(cube, WRONG_MAP);
 }
 
 

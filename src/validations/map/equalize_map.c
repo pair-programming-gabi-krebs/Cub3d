@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_body.c                                       :+:      :+:    :+:   */
+/*   equalize_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 02:06:49 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/08 02:00:22 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/08 01:56:27 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/08 01:56:43 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cube.h"
 
-int	check_body(t_cube *cube)
+void	equalize_map(char **map)
 {
 	int		i;
-	char	*line;
+	size_t	line_len;
+	size_t	biggest_line;
 
-	equalize_map(cube->map.map);
+	biggest_line = biggest_str(map);
 	i = 0;
-	while (cube->map.map[i])
+	while (map[i])
 	{
-		line = ft_strdup(cube->map.map[i]);
-		parse_line(&line);
-		if (check_border_line(line) || !check_line(cube, i, cube->map.map[i]))
-			return (0);
-		free(line);
+		line_len = ft_strlen(map[i]);
+		if (line_len < biggest_line)
+			strjoin_spaces(map, biggest_line, line_len, i);
 		i++;
 	}
-	return (1);
 }

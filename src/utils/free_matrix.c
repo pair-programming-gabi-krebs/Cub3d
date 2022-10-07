@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_body.c                                       :+:      :+:    :+:   */
+/*   free_matrix.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 02:06:49 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/08 02:00:22 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/08 02:14:08 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/08 02:21:44 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cube.h"
+#include "../../includes/cube.h"
 
-int	check_body(t_cube *cube)
+void	free_matrix(char **matrix)
 {
-	int		i;
-	char	*line;
+	int	i;
 
-	equalize_map(cube->map.map);
 	i = 0;
-	while (cube->map.map[i])
+	if (!matrix)
+		return ;
+	while (matrix[i])
 	{
-		line = ft_strdup(cube->map.map[i]);
-		parse_line(&line);
-		if (check_border_line(line) || !check_line(cube, i, cube->map.map[i]))
-			return (0);
-		free(line);
+		printf("matrix[%d]: %s\n", i, matrix[i]);
+		free(matrix[i]);
 		i++;
 	}
-	return (1);
+	free(matrix);
+	matrix = NULL;
 }
