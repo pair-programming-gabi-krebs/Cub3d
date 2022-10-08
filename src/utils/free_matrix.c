@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_validations.c                                 :+:      :+:    :+:   */
+/*   free_matrix.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 22:30:39 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/08 02:10:54 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/08 02:14:08 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/08 02:21:44 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cube.h"
+#include "../../includes/cube.h"
 
-void	file_validations(t_cube *cube, int arguments, char *file)
+void	free_matrix(char **matrix)
 {
-	if (file && arguments == 2)
+	int	i;
+
+	i = 0;
+	if (!matrix)
+		return ;
+	while (matrix[i])
 	{
-		path_validation(cube, file);
-		content_validations(cube, file);
+		printf("matrix[%d]: %s\n", i, matrix[i]);
+		free(matrix[i]);
+		i++;
 	}
-	else
-		ft_exit(cube, WRONG_FILE);
+	free(matrix);
+	matrix = NULL;
 }
