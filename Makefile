@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/10/08 02:14:53 by lkrebs-l         ###   ########.fr        #
+#    Updated: 2022/10/08 05:42:47 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,8 @@ FILES = main.c \
 		strjoin_spaces.c \
 		biggest_str.c \
 		check_line.c \
-		free_matrix.c
+		free_matrix.c \
+		check_body_chars.c
 
 OBJ_PATH = ./objs/
 
