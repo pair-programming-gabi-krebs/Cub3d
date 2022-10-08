@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/08 02:15:57 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/08 03:55:58 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define WRONG_EXTENSIONS "Enter a valid .cub file"
 # define WRONG_CONTENT "Enter a valid content for .cub file"
 # define WRONG_MAP "Enter a valid map"
+# define WRONG_CHAR "The map must only contain valid chars"
+# define WRONG_PLAYER "The mast must contain one player"
 # define M_PI 3.14159265358979323846
 # define NO "NO"
 # define SO "SO"
