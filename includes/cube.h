@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/08 03:55:58 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/08 05:44:27 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define WRONG_CONTENT "Enter a valid content for .cub file"
 # define WRONG_MAP "Enter a valid map"
 # define WRONG_CHAR "The map must only contain valid chars"
-# define WRONG_PLAYER "The mast must contain one player"
+# define WRONG_PLAYER "The map must contain one player"
 # define M_PI 3.14159265358979323846
 # define NO "NO"
 # define SO "SO"
@@ -128,6 +128,7 @@ void	equalize_map(char **map);
 void	strjoin_spaces(char **map, size_t big_str, size_t len, int i);
 size_t	biggest_str(char **map);
 int		check_line(t_cube *cube, int i, char *line);
+void	check_body_chars(t_cube *cube);
 
 // game files
 void	init_window(t_cube *cube);
