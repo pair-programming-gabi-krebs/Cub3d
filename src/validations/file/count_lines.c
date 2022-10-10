@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   count_lines.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 22:52:20 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:18:01 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/05 02:42:57 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/08 02:09:29 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	close_window(t_cube *cube)
+int	count_lines(t_cube *cube, char *file)
 {
-	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_display(cube->mlx_ptr);
-	mlx_loop_end(cube->mlx_ptr);
-	free(cube->mlx_ptr);
-	exit(0);
-	return (0);
+	char	*line;
+	int		count;
+	int		fd;
+	
+	fd = open_file(cube, file);
+	count = 0;
+	line = get_next_line(fd);
+	while (line)
+	{
+		count++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (count);
 }

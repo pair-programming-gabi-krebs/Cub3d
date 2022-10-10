@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   check_first_row.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 22:52:20 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:18:01 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/05 01:54:28 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/05 01:54:57 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	close_window(t_cube *cube)
+int	check_first_row(t_cube *cube)
 {
-	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_display(cube->mlx_ptr);
-	mlx_loop_end(cube->mlx_ptr);
-	free(cube->mlx_ptr);
-	exit(0);
-	return (0);
+	if (!check_valid_chars_line(cube->map.map[0]))
+	{
+		printf("parei no first row\n");
+		return (0);
+	}
+	return (1);
 }

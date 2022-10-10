@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 22:04:01 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/08/25 02:47:20 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/07 00:18:56 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 
 typedef struct s_list
 {
-	void *content;
-	struct  s_list *next;	
-} t_list;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 //** Part 1 **
 
@@ -278,9 +278,6 @@ void	ft_putendl_fd(char *s, int fd);
  * @return None.
  */
 void	ft_putnbr_fd(int n, int fd);
-
-
 char	*get_next_line(int fd);
-
 
 #endif

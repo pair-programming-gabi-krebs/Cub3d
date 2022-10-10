@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   set_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 22:52:20 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:18:01 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/09/27 00:15:37 by gcosta-d          #+#    #+#             */
+/*   Updated: 2022/10/08 05:57:03 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-int	close_window(t_cube *cube)
+void	set_map(t_cube *cube)
 {
-	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_display(cube->mlx_ptr);
-	mlx_loop_end(cube->mlx_ptr);
-	free(cube->mlx_ptr);
-	exit(0);
-	return (0);
+	printf("%d", cube->content.total_lines);
+	ft_exit(cube, "msg");
 }

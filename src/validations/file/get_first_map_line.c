@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   get_first_map_line.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 22:52:20 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:18:01 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/05 02:37:41 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/05 02:37:59 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	close_window(t_cube *cube)
+int	get_first_map_line(t_cube *cube)
 {
-	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_display(cube->mlx_ptr);
-	mlx_loop_end(cube->mlx_ptr);
-	free(cube->mlx_ptr);
-	exit(0);
+	int	line;
+
+	line = cube->content.last_color_line + 1;
+	while (cube->content.content[line])
+	{
+		if (ft_strchr(cube->content.content[line], '1'))
+			return (line);
+		line++;
+	}
 	return (0);
 }

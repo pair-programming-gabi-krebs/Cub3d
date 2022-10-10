@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   check_valid_chars_line.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 22:52:20 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:18:01 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/05 02:00:54 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/05 18:23:22 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	close_window(t_cube *cube)
+int	check_valid_chars_line(char *s)
 {
-	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_display(cube->mlx_ptr);
-	mlx_loop_end(cube->mlx_ptr);
-	free(cube->mlx_ptr);
-	exit(0);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i] && s[i] != '\n')
+	{
+		if (s[i] != 32 && !(s[i] >= 9 && s[i] <= 13) && s[i] != 49)
+			return (0);
+		i++;
+	}
+	return (1);
 }

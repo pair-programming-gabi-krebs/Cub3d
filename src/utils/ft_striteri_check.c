@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   ft_striteri_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 22:52:20 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:18:01 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/09/27 00:35:03 by gcosta-d          #+#    #+#             */
+/*   Updated: 2022/10/05 02:43:53 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-int	close_window(t_cube *cube)
+int	ft_striteri_check(char *s, int (*f)(unsigned int, char *))
 {
-	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_display(cube->mlx_ptr);
-	mlx_loop_end(cube->mlx_ptr);
-	free(cube->mlx_ptr);
-	exit(0);
-	return (0);
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		printf("s[%d]: %d\n", i, s[i]);
+		if (s[i] != 32 && !(s[i] >= 9 && s[i] <= 13) && s[i] != 49)
+		{
+			return (0);
+		}
+		if (!f(i, &s[i]))
+			printf("hoi\n");
+		i++;
+	}
+	return (1);
 }

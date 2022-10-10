@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   strjoin_spaces.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 22:52:20 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:18:01 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/08 01:57:55 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/08 01:58:10 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../../../includes/cube.h"
 
-int	close_window(t_cube *cube)
+void strjoin_spaces(char **map, size_t big_str, size_t len, int i)
 {
-	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_display(cube->mlx_ptr);
-	mlx_loop_end(cube->mlx_ptr);
-	free(cube->mlx_ptr);
-	exit(0);
-	return (0);
+	char	*spaces;
+	char	*aux;
+	int		diff;
+
+	diff = big_str - len;
+	spaces = malloc(sizeof(char) * (diff));
+	ft_memset(spaces, ' ', diff);
+	spaces[diff - 1] = '\0';
+	map[i][len - 1] = ' ';
+	aux = ft_strdup(map[i]);
+	free(map[i]);
+	map[i] = ft_strjoin(aux, spaces);
+	free(aux);
+	free(spaces);
 }

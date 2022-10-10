@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   key_release.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 22:52:20 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/20 04:18:01 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/09/01 04:33:29 by gcosta-d          #+#    #+#             */
+/*   Updated: 2022/09/22 03:31:10 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-int	close_window(t_cube *cube)
+int	key_release(int key, t_cube *cube)
 {
-	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_window(cube->mlx_ptr, cube->mlx_win);
-	mlx_destroy_display(cube->mlx_ptr);
-	mlx_loop_end(cube->mlx_ptr);
-	free(cube->mlx_ptr);
-	exit(0);
+	if (key == A)
+			cube->player.walk_direction = 0;
+	else if (key == W)
+			cube->player.walk_direction = 0;
+	else if (key == S)
+			cube->player.walk_direction = 0;
+	else if (key == D)
+			cube->player.walk_direction = 0;
+	else if (key == ARROW_LEFT)
+			cube->player.turn_direction = 0;
+	if (key == ARROW_RIGHT)
+		cube->player.turn_direction = 0;
 	return (0);
 }
