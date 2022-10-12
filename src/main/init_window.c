@@ -3,25 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/24 04:13:35 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/10/12 01:56:37 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
 static void	load_images(t_cube *cube);
-static void	map_mock(t_cube *cube);
 static void init_map(t_cube *cube);
 static void init_player(t_cube *cube);
 
 void	init_window(t_cube *cube)
 {
 	cube->mlx_ptr = mlx_init();
-	cube->mlx_win = mlx_new_window(cube->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "Cub3D");
-	map_mock(cube);
+	cube->mlx_win = mlx_new_window(cube->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, \
+		"Cub3D");
 	load_images(cube);
 	init_map(cube);
 	init_player(cube);
@@ -30,30 +29,8 @@ void	init_window(t_cube *cube)
 static void	load_images(t_cube *cube)
 {
 	//cube->player.testeImg = mlx_xpm_file_to_image(cube->mlx_ptr, TESTE_IMG, &(cube->player.img_width), &(cube->player.img_height));
-	cube->player.paredeImg = mlx_xpm_file_to_image(cube->mlx_ptr, PAREDE, &(cube->player.img_width), &(cube->player.img_height));
-}
-
-static void	map_mock(t_cube *cube)
-{
-	char worldMap[11][13]=
-	{
-		{'1','1','1','1','1','1','1','1','1','1','1','1','\0'},
-		{'1','0','0','0','0','0','0','0','0','0','0','1','\0'},
-		{'1','0','0','0','0','0','0','0','0','0','0','1','\0'},
-		{'1','0','0','0','0','0','0','0','0','0','0','1','\0'},
-		{'1','0','0','1','1','1','0','0','0','1','1','1','\0'},
-		{'1','0','0','0','0','0','0','0','0','0','0','1','\0'},
-		{'1','0','0','0','0','0','0','0','0','0','0','1','\0'},
-		{'1','0','0','0','N','0','0','0','0','0','0','1','\0'},
-		{'1','0','0','0','0','0','0','0','0','0','0','1','\0'},
-		{'1','1','1','1','1','1','1','1','1','1','1','1','\0'},
-		{'\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0'},
-	};
-	
-	cube->map2 = malloc(sizeof(char*) * 11);
-	cube->map2[0] = NULL;
-	for (int j = 0; j < 11; j++)
-		cube->map2[j] = ft_strdup(worldMap[j]);
+	cube->player.paredeImg = mlx_xpm_file_to_image(cube->mlx_ptr, PAREDE, \
+		&(cube->player.img_width), &(cube->player.img_height));
 }
 
 static void init_player(t_cube *cube)
@@ -62,25 +39,25 @@ static void init_player(t_cube *cube)
 	int	y;
 
 	y = 0;
-	while (cube->map2[y][0])
+	while (cube->map.map[y])
 	{
 		x = 0;
-		while (cube->map2[y][x])
+		while (cube->map.map[y][x])
 		{
-			if (cube->map2[y][x] == 'N' || cube->map2[y][x] == 'W' || cube->map2[y][x] == 'E' || cube->map2[y][x] == 'S')
+			if (cube->map.map[y][x] == 'N' || cube->map.map[y][x] == 'W' || cube->map.map[y][x] == 'E' || cube->map.map[y][x] == 'S')
 			{
 				cube->player.pos_x = x;
 				printf("player position x %d", x);
 				cube->player.pos_y = y;
 				printf("player position y %d", y);
 			}
-			if (cube->map2[y][x] == 'N')
+			if (cube->map.map[y][x] == 'N')
 				cube->player.rotation_angle = deg_to_rad(270);
-			else if (cube->map2[y][x] == 'W')
+			else if (cube->map.map[y][x] == 'W')
 				cube->player.rotation_angle = deg_to_rad(0);
-			else if (cube->map2[y][x] == 'E')
+			else if (cube->map.map[y][x] == 'E')
 				cube->player.rotation_angle = deg_to_rad(180);
-			else if (cube->map2[y][x] == 'S')
+			else if (cube->map.map[y][x] == 'S')
 				cube->player.rotation_angle = deg_to_rad(90);
 			x++;
 		}
@@ -123,12 +100,14 @@ static void init_map(t_cube *cube)
 	int	y;
 
 	y = 0;
-	while (cube->map2[y][0])
+	while (cube->map.map[y])
 	{
+		printf("%s", cube->map.map[y]);
 		x = 0;
-		while (cube->map2[y][x])
+		while (cube->map.map[y][x])
 		{
-			if (cube->map2[y][x] == '1')
+			printf("%c", cube->map.map[y][x]);
+			if (cube->map.map[y][x] == '1')
 			{
 				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);
 			}
