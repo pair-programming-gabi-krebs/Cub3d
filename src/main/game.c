@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 03:11:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/09/24 04:18:32 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:44:11 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
 static int	render(t_cube *cube);
-//static void cast_all_rays(t_cube *cube);
+static void cast_all_rays(t_cube *cube);
 static void update_player(t_cube *cube);
 static void render_player(t_cube *cube);
 static int	is_wall(t_cube *cube, double x, double y);
@@ -70,7 +70,7 @@ static void render_player(t_cube *cube)
 			cube->player.pos_y * SIZE_IMG, 
 			cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50),
 			cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
-	//cast_all_rays(cube);
+	cast_all_rays(cube);
 }
 
 static int	is_wall(t_cube *cube, double x, double y)
@@ -83,7 +83,7 @@ static int	is_wall(t_cube *cube, double x, double y)
 	x_parse = floor(x);
 	y_parse = floor(y);
 	printf("Floor x: %d\nFloor y: %d\n", x_parse, y_parse);
-	if (!cube->map2[y_parse][x_parse] || cube->map2[y_parse][x_parse] == '1')
+	if (!cube->map.map[y_parse][x_parse] || cube->map.map[y_parse][x_parse] == '1')
 	{
 		printf("XMEN!\n");
 		return (1);
@@ -91,15 +91,24 @@ static int	is_wall(t_cube *cube, double x, double y)
 	return (0);
 }
 
-// static void cast_all_rays(t_cube *cube)
-// {
-// 	int		column_id;
-// 	double	ray_angle;
+static void cast_all_rays(t_cube *cube)
+{
+	int		i;
+	double	ray_angle;
 
-// 	column_id = 0;
-// 	// colocar rotation_angle na struct
-// 	ray_angle = cube->player.rotation_angle - (deg_to_rad(FOV) / 2);
-// }
+	ray_angle = cube->player.rotation_angle - (deg_to_rad(FOV)/2);
+	printf("ray angle: %f\n", ray_angle);
+	printf("rotation angle: %f\n", cube->player.rotation_angle);
+	i = 0;
+	while (i < NUM_RAYS)
+	{
+		//cast_ray(cube, i);
+		ray_angle += deg_to_rad(FOV)/NUM_RAYS;
+		printf("ray angle: %f\n", ray_angle);
+		printf("rotation angle: %f\n", cube->player.rotation_angle);
+		i++;
+	}
+}
 
 static void render_map(t_cube *cube)
 {
@@ -107,14 +116,13 @@ static void render_map(t_cube *cube)
 	int	y;
 
 	y = 0;
-	while (cube->map2[y][0])
+	while (cube->map.map[y])
 	{
 		x = 0;
-		while (cube->map2[y][x])
+		while (cube->map.map[y][x])
 		{
-			if (cube->map2[y][x] == '1')
+			if (cube->map.map[y][x] == '1')
 			{
-				printf("map[%d][%d]\n", y, x);
 				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);
 			}
 			x++;
