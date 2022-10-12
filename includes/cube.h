@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/08 05:44:27 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:33:39 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 # define ARROW_RIGHT 65363
 # define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 600
+# define NUM_RAYS 1000
 
 # define TESTE_IMG "./assets/teste.xpm"
 # define PAREDE "./assets/parede.xpm"
@@ -68,7 +69,7 @@ typedef struct s_player
 	int		has_updated;
 }	t_player;
 
-typedef struct content
+typedef struct s_content
 {
 	char	**content;
 	char	*north_pattern;
@@ -81,17 +82,29 @@ typedef struct content
 	int		total_lines;
 }	t_content;
 
-typedef struct map
+typedef struct s_map
 {
 	char	**map;
 }	t_map;
+
+typedef struct s_ray
+{
+	double	ray_angle;
+	double	wall_hit_x;
+	double	wall_hit_y;
+	double	distance;
+	int		was_hit_vertical;
+	int		facing_up;
+	int		facing_down;
+	int		facing_left;
+	int		facing_right;
+	int		hit_content;	
+}	t_rays[NUM_RAYS];
 
 typedef struct s_cube
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
-	//char		**map;
-	char		**map2;
 	t_player	player;
 	t_content	content;
 	t_map		map;
@@ -120,7 +133,6 @@ int		get_first_map_line(t_cube *cube);
 int		count_lines(t_cube *cube, char *file);
 int		open_file(t_cube *cube, char *file);
 int		check_border_line(char *line);
-void	set_map(t_cube *cube);
 int		check_textures(t_cube *cube);
 int		check_colors(t_cube *cube);
 void	copy_map(t_cube *cube, int line);
