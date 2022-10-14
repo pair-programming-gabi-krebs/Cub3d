@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 03:11:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/14 04:56:06 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/14 04:48:17 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/14 04:49:14 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-void	game(t_cube *cube)
+void	render_map(t_cube *cube)
 {
-	mlx_hook(cube->mlx_win, KEY_PRESSED, 1L << 0, key_press, cube);
-	mlx_hook(cube->mlx_win, KEY_RELEASED, 1L << 1, key_release, cube);
-	mlx_hook(cube->mlx_win, CLICK_X, 0, close_window, cube);
-	mlx_loop_hook(cube->mlx_ptr, render, cube);
-	mlx_loop(cube->mlx_ptr);
+	int	x;
+	int	y;
+
+	y = 0;
+	while (cube->map.map[y])
+	{
+		x = 0;
+		while (cube->map.map[y][x])
+		{
+			if (cube->map.map[y][x] == '1')
+			{
+				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);
+			}
+			x++;
+		}
+		y++;
+	}
 }

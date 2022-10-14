@@ -6,7 +6,7 @@
 #    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/10/12 01:45:43 by lkrebs-l         ###   ########.fr        #
+#    Updated: 2022/10/14 05:31:29 by lkrebs-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 CC = clang
 
-VPATH = src/main src/validations src/utils src/validations/map src/validations/file
+VPATH = src/main src/validations src/utils src/validations/map src/validations/file src/raycasting
 
 FLAGS = -lm -lmlx -lXext -lX11
 
@@ -63,7 +63,14 @@ FILES = main.c \
 		biggest_str.c \
 		check_line.c \
 		free_matrix.c \
-		check_body_chars.c
+		check_body_chars.c \
+		render.c \
+		render_map.c \
+		update_player.c \
+		render_player.c \
+		cast_all_rays.c \
+		cast_ray.c \
+		is_wall.c
 
 OBJ_PATH = ./objs/
 

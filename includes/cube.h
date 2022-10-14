@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/12 02:33:39 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/14 05:51:39 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define ARROW_RIGHT 65363
 # define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 600
-# define NUM_RAYS 1000
+# define NUM_RAYS 300
 
 # define TESTE_IMG "./assets/teste.xpm"
 # define PAREDE "./assets/parede.xpm"
@@ -87,7 +87,7 @@ typedef struct s_map
 	char	**map;
 }	t_map;
 
-typedef struct s_ray
+typedef struct s_rays
 {
 	double	ray_angle;
 	double	wall_hit_x;
@@ -108,6 +108,7 @@ typedef struct s_cube
 	t_player	player;
 	t_content	content;
 	t_map		map;
+	t_rays		rays;
 }	t_cube;
 
 
@@ -142,6 +143,15 @@ size_t	biggest_str(char **map);
 int		check_line(t_cube *cube, int i, char *line);
 void	check_body_chars(t_cube *cube);
 
+// raycasting
+
+int		render(t_cube *cube);
+void	render_map(t_cube *cube);
+void	render_player(t_cube *cube);
+void	update_player(t_cube *cube);
+void	cast_all_rays(t_cube *cube);
+void	cast_ray(t_cube *cube, double ray, int i);
+
 // game files
 void	init_window(t_cube *cube);
 void	setup(t_cube *cube);
@@ -161,5 +171,6 @@ void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, doubl
 int		ft_is_space(unsigned int i, char *s);
 int		ft_striteri_check(char *s, int (*f)(unsigned int, char *));
 void	free_matrix(char **matrix);
+int		is_wall(t_cube *cube, double x, double y);
 
 #endif

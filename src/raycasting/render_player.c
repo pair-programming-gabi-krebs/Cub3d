@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   render_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 03:11:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/14 04:56:06 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/10/14 04:50:36 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/10/14 04:51:11 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-void	game(t_cube *cube)
+void	render_player(t_cube *cube)
 {
-	mlx_hook(cube->mlx_win, KEY_PRESSED, 1L << 0, key_press, cube);
-	mlx_hook(cube->mlx_win, KEY_RELEASED, 1L << 1, key_release, cube);
-	mlx_hook(cube->mlx_win, CLICK_X, 0, close_window, cube);
-	mlx_loop_hook(cube->mlx_ptr, render, cube);
-	mlx_loop(cube->mlx_ptr);
+	mlx_clear_window(cube->mlx_ptr, cube->mlx_win);
+	draw_line(cube, 
+			cube->player.pos_x * SIZE_IMG,
+			cube->player.pos_y * SIZE_IMG, 
+			cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50),
+			cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
+	cast_all_rays(cube);
 }
