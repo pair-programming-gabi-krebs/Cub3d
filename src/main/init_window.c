@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/12 01:56:37 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/14 04:57:07 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ static void init_player(t_cube *cube)
 
 void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y)
 {
-	double delta_x; // diferença entre o ponto inicial e o final
-	double delta_y;
-	double pixels_x; // pontos a serem desenhados
-	double pixels_y;
-	double pixels_qnt; // quantidade de pixels a ser desenhada
+	double	delta_x; // diferença entre o ponto inicial e o final
+	double	delta_y;
+	double	pixels_x; // pontos a serem desenhados
+	double	pixels_y;
+	double	pixels_qnt; // quantidade de pixels a ser desenhada
 	
 	delta_x = end_x - begin_x;
 	delta_y = end_y - begin_y;

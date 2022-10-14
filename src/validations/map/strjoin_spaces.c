@@ -6,13 +6,13 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 01:57:55 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/08 01:58:10 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/10/14 04:58:28 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cube.h"
 
-void strjoin_spaces(char **map, size_t big_str, size_t len, int i)
+void	strjoin_spaces(char **map, size_t big_str, size_t len, int i)
 {
 	char	*spaces;
 	char	*aux;
