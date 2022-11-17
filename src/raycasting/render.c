@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:45:31 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/14 05:02:09 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/16 21:39:15 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int	render(t_cube *cube)
 {
-	update_player(cube);
-	render_player(cube);
-	render_map(cube);
+	// verificar se o player atualizou, se não, não renderizar nada
+	if ()
+	{
+		update_player(cube);
+		render_player(cube);
+		render_map(cube);
+	}
 	return (0);
 }

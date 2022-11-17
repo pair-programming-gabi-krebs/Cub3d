@@ -6,15 +6,15 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/14 04:57:07 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/16 20:29:48 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
 static void	load_images(t_cube *cube);
-static void init_map(t_cube *cube);
-static void init_player(t_cube *cube);
+static void	init_map(t_cube *cube);
+static void	init_player(t_cube *cube);
 
 void	init_window(t_cube *cube)
 {
@@ -33,7 +33,7 @@ static void	load_images(t_cube *cube)
 		&(cube->player.img_width), &(cube->player.img_height));
 }
 
-static void init_player(t_cube *cube)
+static void	init_player(t_cube *cube)
 {
 	int	x;
 	int	y;
@@ -44,7 +44,8 @@ static void init_player(t_cube *cube)
 		x = 0;
 		while (cube->map.map[y][x])
 		{
-			if (cube->map.map[y][x] == 'N' || cube->map.map[y][x] == 'W' || cube->map.map[y][x] == 'E' || cube->map.map[y][x] == 'S')
+			if (cube->map.map[y][x] == 'N' || cube->map.map[y][x] == 'W' || \
+				cube->map.map[y][x] == 'E' || cube->map.map[y][x] == 'S')
 			{
 				cube->player.pos_x = x;
 				printf("player position x %d", x);
@@ -59,15 +60,16 @@ static void init_player(t_cube *cube)
 				cube->player.rotation_angle = deg_to_rad(180);
 			else if (cube->map.map[y][x] == 'S')
 				cube->player.rotation_angle = deg_to_rad(90);
+			// criar função com todos os ifs para redução de responsabilidade
 			x++;
 		}
 		y++;
 	}
 	draw_line(cube, 
-			  cube->player.pos_x * SIZE_IMG,
-			  cube->player.pos_y * SIZE_IMG, 
-			  cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50), 
-			  cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
+			cube->player.pos_x * SIZE_IMG,
+			cube->player.pos_y * SIZE_IMG, 
+			cube->player.pos_x * SIZE_IMG + (cos(cube->player.rotation_angle) * 50), 
+			cube->player.pos_y * SIZE_IMG + (sin(cube->player.rotation_angle) * 50));
 }
 
 void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y)
@@ -94,7 +96,7 @@ void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, doubl
 	}
 }
 
-static void init_map(t_cube *cube)
+static void	init_map(t_cube *cube)
 {
 	int	x;
 	int	y;

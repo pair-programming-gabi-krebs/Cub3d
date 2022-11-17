@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 05:05:20 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/14 05:41:37 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/16 20:27:35 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	get_ray_direction(t_cube *cube, double ray, int i)
 	cube->rays[i].facing_down = 0;
 	cube->rays[i].facing_right = 0;
 	cube->rays[i].facing_left = 0;
-	
+
 	// Ray facing up
 	if (ray > M_PI && ray < 2 * M_PI) {
 		cube->rays[i].facing_up = 1;

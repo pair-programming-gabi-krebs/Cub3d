@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_body_chars.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 05:23:59 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/08 05:52:54 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/11/16 20:24:38 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_body_chars(t_cube *cube)
 	while (cube->map.map[i])
 	{
 		j = 0;
-		while(cube->map.map[i][j])
+		while (cube->map.map[i][j])
 		{
 			if (!check_valid_map_chars(cube->map.map[i][j]))
 			{
@@ -52,7 +52,7 @@ static int	check_valid_map_chars(char c)
 	chs = ft_strdup("01NWSE \n");
 	i = 0;
 	match = 0;
-	while (chs[i] )
+	while (chs[i])
 	{
 		if (chs[i] == c)
 		{

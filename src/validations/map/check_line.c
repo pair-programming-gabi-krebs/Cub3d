@@ -6,13 +6,13 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 01:59:43 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/08 02:00:03 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/16 20:25:02 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cube.h"
 
-int check_line(t_cube *cube, int i, char *line)
+int	check_line(t_cube *cube, int i, char *line)
 {
 	int	j;
 
