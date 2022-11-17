@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cast_all_rays.c                                    :+:      :+:    :+:   */
+/*   normalize_angle.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 04:53:57 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/17 21:02:44 by lkrebs-l         ###   ########.fr       */
+/*   Created: 2022/11/17 22:44:10 by lkrebs-l          #+#    #+#             */
+/*   Updated: 2022/11/18 00:21:23 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-void	cast_all_rays(t_cube *cube)
+double	normalize_angle(double ray)
 {
-	int		i;
-	double	ray_angle;
-
-	ray_angle = cube->player.rotation_angle - (deg_to_rad(FOV)/2);
-	i = 0;
-	while (i < NUM_RAYS)
+	// TWO_PI, is it M_PI * 2?
+	ray = remainder(ray, M_PI * 2);
+	if (ray < 0)
 	{
-		cast_ray(cube, ray_angle, i);
-		draw_line(cube,
-			cube->player.pos_x * SIZE_IMG,
-			cube->player.pos_y * SIZE_IMG,
-			cube->player.pos_x * SIZE_IMG + (cos(ray_angle) * 50),
-			cube->player.pos_y * SIZE_IMG + (sin(ray_angle) * 50));
-		ray_angle += deg_to_rad(FOV)/NUM_RAYS;
-		i++;
+		ray = M_PI * 2 + ray;
 	}
+	return ray;
 }
