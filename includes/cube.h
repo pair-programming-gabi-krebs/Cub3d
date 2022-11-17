@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/11/16 20:46:03 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:19:41 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define W 119
 # define S 115
 # define D 100
+# define TILE_SIZE 32
 # define ARROW_LEFT 65361
 # define ARROW_RIGHT 65363
 # define WINDOW_WIDTH 1000
@@ -85,6 +86,8 @@ typedef struct s_content
 typedef struct s_map
 {
 	char	**map;
+	int		horz_wall;
+	int		vert_wall;
 }	t_map;
 
 typedef struct s_rays
@@ -98,19 +101,34 @@ typedef struct s_rays
 	int		facing_down;
 	int		facing_left;
 	int		facing_right;
-	int		hit_content;	
+	int		hit_content;
 }	t_rays[NUM_RAYS];
 
 typedef struct s_cube
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
+	long		x_step;
+	long		y_step;
+	long		x_intercept;
+	long		y_intercept;
+	long		horz_hit_x;
+	long		horz_hit_y;
+	int			horz_has_hit_wall;
+	double		next_horz_hit_y;
+	double		next_horz_hit_x;
+	long		vert_hit_x;
+	long		vert_hit_y;
+	int			vert_has_hit_wall;
+	double		next_vert_hit_y;
+	double		next_vert_hit_x;
+	double		x_check;
+	double		y_check;
 	t_player	player;
 	t_content	content;
 	t_map		map;
 	t_rays		rays;
 }	t_cube;
-
 
 // Validations
 void	file_validations(t_cube *cube, int arguments, char *file);
@@ -144,13 +162,19 @@ int		check_line(t_cube *cube, int i, char *line);
 void	check_body_chars(t_cube *cube);
 
 // raycasting
-
 int		render(t_cube *cube);
 int		render_map(t_cube *cube);
 int		render_player(t_cube *cube);
 int		update_player(t_cube *cube);
 void	cast_all_rays(t_cube *cube);
 void	cast_ray(t_cube *cube, double ray, int i);
+double	normalize_angle(double ray);
+void	get_ray_direction(t_cube *cube, double ray, int i);
+void	calculate_horz_steps(t_cube *cube, double ray, int i);
+void	calculate_vert_steps(t_cube *cube, double ray, int i);
+void	find_horz_hits(t_cube *cube, int i);
+void	find_vert_hits(t_cube *cube, int i);
+int		map_has_wall_at(char **map, double x_check, double y_check);
 
 // game files
 void	init_window(t_cube *cube);

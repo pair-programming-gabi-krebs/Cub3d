@@ -6,7 +6,7 @@
 #    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/10/14 05:31:29 by lkrebs-l         ###   ########.fr        #
+#    Updated: 2022/11/18 00:20:11 by lkrebs-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,14 @@ FILES = main.c \
 		render_player.c \
 		cast_all_rays.c \
 		cast_ray.c \
-		is_wall.c
+		is_wall.c \
+		calculate_horz_steps.c \
+		calculate_vert_steps.c \
+		find_horz_hits.c \
+		find_vert_hits.c \
+		normalize_angle.c \
+		get_ray_direction.c \
+		map_has_wall_at.c
 
 OBJ_PATH = ./objs/
 
