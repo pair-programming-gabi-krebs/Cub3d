@@ -6,13 +6,13 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:48:17 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/14 04:49:14 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:07:25 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-void	render_map(t_cube *cube)
+int	render_map(t_cube *cube)
 {
 	int	x;
 	int	y;
@@ -25,10 +25,13 @@ void	render_map(t_cube *cube)
 		{
 			if (cube->map.map[y][x] == '1')
 			{
-				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);
+				// montar a imagem na memória
+				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, \
+					cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);
 			}
 			x++;
 		}
 		y++;
 	}
+	return (0);
 }
