@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/10/14 05:51:39 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/16 20:46:03 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,9 +146,9 @@ void	check_body_chars(t_cube *cube);
 // raycasting
 
 int		render(t_cube *cube);
-void	render_map(t_cube *cube);
-void	render_player(t_cube *cube);
-void	update_player(t_cube *cube);
+int		render_map(t_cube *cube);
+int		render_player(t_cube *cube);
+int		update_player(t_cube *cube);
 void	cast_all_rays(t_cube *cube);
 void	cast_ray(t_cube *cube, double ray, int i);
 
