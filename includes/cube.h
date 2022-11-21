@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/11/18 00:19:41 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/22 00:24:54 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define WRONG_CHAR "The map must only contain valid chars"
 # define WRONG_PLAYER "The map must contain one player"
 # define M_PI 3.14159265358979323846
+# define MAX_INT 2147483647
 # define NO "NO"
 # define SO "SO"
 # define WE "WE"
@@ -96,8 +97,8 @@ typedef struct s_rays
 	double	wall_hit_x;
 	double	wall_hit_y;
 	double	distance;
-	int		was_hit_vertical;
 	int		facing_up;
+	int		was_hit_vert;
 	int		facing_down;
 	int		facing_left;
 	int		facing_right;
@@ -114,12 +115,12 @@ typedef struct s_cube
 	long		y_intercept;
 	long		horz_hit_x;
 	long		horz_hit_y;
-	int			horz_has_hit_wall;
-	double		next_horz_hit_y;
-	double		next_horz_hit_x;
 	long		vert_hit_x;
 	long		vert_hit_y;
+	int			horz_has_hit_wall;
 	int			vert_has_hit_wall;
+	double		next_horz_hit_y;
+	double		next_horz_hit_x;
 	double		next_vert_hit_y;
 	double		next_vert_hit_x;
 	double		x_check;
@@ -175,6 +176,8 @@ void	calculate_vert_steps(t_cube *cube, double ray, int i);
 void	find_horz_hits(t_cube *cube, int i);
 void	find_vert_hits(t_cube *cube, int i);
 int		map_has_wall_at(char **map, double x_check, double y_check);
+void	calculate_distance(t_cube *cube);
+double	distance_between_points(t_cube *cube, double hit_x, double hit_y);
 
 // game files
 void	init_window(t_cube *cube);
