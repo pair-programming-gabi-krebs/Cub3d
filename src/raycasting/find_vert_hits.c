@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_vert_hits.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:49:01 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/18 00:21:10 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/22 05:00:07 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	store_hit_wall_value(t_cube *cube)
 	cube->vert_hit_x = cube->next_vert_hit_x;
 	cube->vert_hit_y = cube->next_vert_hit_y;
 	cube->map.vert_wall = \
-		cube->map.map[(int)floor(cube->y_check / TILE_SIZE)] \
-		[(int)floor(cube->x_check / TILE_SIZE)];
+		cube->map.map[(int)cube->y_check / TILE_SIZE] \
+		[(int)cube->x_check / TILE_SIZE];
 	cube->vert_has_hit_wall = 1;
 }
