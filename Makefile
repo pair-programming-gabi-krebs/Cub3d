@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/11/18 01:27:36 by lkrebs-l         ###   ########.fr        #
+#    Updated: 2022/11/22 04:43:42 by gcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,9 @@ FILES = main.c \
 		find_vert_hits.c \
 		normalize_angle.c \
 		get_ray_direction.c \
-		map_has_wall_at.c
+		map_has_wall_at.c \
+		calculate_distance.c \
+		distance_between_points.c
 
 OBJ_PATH = ./objs/
 

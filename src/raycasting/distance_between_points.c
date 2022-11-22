@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   distance_between_points.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:20:32 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/22 00:45:30 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/22 04:44:51 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ double	distance_between_points(t_cube *cube, double hit_x, double hit_y)
 	pos_y = cube->player.pos_y;
 	calc_pos = ((hit_x - pos_x) * (hit_x - pos_x));
 	calc_hits = ((hit_y - pos_y) * (hit_y - pos_y));
-	return sqtr(calc_pos + calc_hits);
+	return (sqrt(calc_pos + calc_hits));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/11/22 00:24:54 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/22 04:46:33 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define W 119
 # define S 115
 # define D 100
-# define TILE_SIZE 32
+# define TILE_SIZE 64
 # define ARROW_LEFT 65361
 # define ARROW_RIGHT 65363
 # define WINDOW_WIDTH 1000
@@ -176,7 +176,7 @@ void	calculate_vert_steps(t_cube *cube, double ray, int i);
 void	find_horz_hits(t_cube *cube, int i);
 void	find_vert_hits(t_cube *cube, int i);
 int		map_has_wall_at(char **map, double x_check, double y_check);
-void	calculate_distance(t_cube *cube);
+void	calculate_distance(t_cube *cube, int i);
 double	distance_between_points(t_cube *cube, double hit_x, double hit_y);
 
 // game files
