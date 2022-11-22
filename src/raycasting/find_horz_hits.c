@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:03:14 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/22 04:59:30 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/11/22 05:04:36 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ static void	store_hit_wall_value(t_cube *cube)
 		cube->map.map[(int)cube->y_check / TILE_SIZE] \
 		[(int)cube->x_check / TILE_SIZE];
 	cube->horz_has_hit_wall = 1;
-	printf("horz_wall line 47: %i\n", cube->map.horz_wall);
 }

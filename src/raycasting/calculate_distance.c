@@ -6,7 +6,7 @@
 /*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:08:10 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/22 04:42:35 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/11/22 05:37:00 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static double	get_horz_hit_distance(t_cube *cube)
 			cube->horz_hit_y);
 	}
 	else
-		horz_hit_distance = MAX_INT;
+		horz_hit_distance = WINDOW_WIDTH;
 	return (horz_hit_distance);
 }
 
@@ -54,7 +54,7 @@ static double	get_vert_hit_distance(t_cube *cube)
 			cube->vert_hit_y);
 	}
 	else
-		vert_hit_distance = MAX_INT;
+		vert_hit_distance = WINDOW_HEIGHT;
 	return (vert_hit_distance);
 }
 
