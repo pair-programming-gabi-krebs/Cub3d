@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:49:56 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/16 20:43:44 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/23 01:51:17 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	update_player(t_cube *cube)
 	double	new_pos_y;
 
 	step = cube->player.walk_direction * cube->player.move_speed;
-	//cube->player.rotation_angle += cube->player.turn_direction * cube->player.rotation_speed;
 	if (cube->player.rotation_angle < 0)
 		cube->player.rotation_angle += 2 * M_PI;
 	else if (cube->player.rotation_angle > 2 * M_PI)

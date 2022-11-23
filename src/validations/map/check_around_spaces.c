@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:07:39 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/05 18:28:44 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/22 23:23:59 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ int	check_around_spaces(t_cube *cube)
 		while (cube->map.map[i][j])
 		{
 			if (!check_space(cube, i, j))
-			{
-				printf("ok n\n");
 				return (0);
-			}
 			j++;
 		}
 		i++;

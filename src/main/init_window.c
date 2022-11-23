@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:42:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/11/16 20:29:48 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/22 23:56:05 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ static void	init_player(t_cube *cube)
 				cube->map.map[y][x] == 'E' || cube->map.map[y][x] == 'S')
 			{
 				cube->player.pos_x = x;
-				printf("player position x %d", x);
 				cube->player.pos_y = y;
-				printf("player position y %d", y);
 			}
 			if (cube->map.map[y][x] == 'N')
 				cube->player.rotation_angle = deg_to_rad(270);
@@ -104,11 +102,9 @@ static void	init_map(t_cube *cube)
 	y = 0;
 	while (cube->map.map[y])
 	{
-		printf("%s", cube->map.map[y]);
 		x = 0;
 		while (cube->map.map[y][x])
 		{
-			printf("%c", cube->map.map[y][x]);
 			if (cube->map.map[y][x] == '1')
 			{
 				mlx_put_image_to_window(cube->mlx_ptr, cube->mlx_win, cube->player.paredeImg, x * SIZE_IMG, y * SIZE_IMG);

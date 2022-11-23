@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:51:39 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/10/14 04:52:48 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/23 00:12:10 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ int	is_wall(t_cube *cube, double x, double y)
 		return (1);
 	x_parse = floor(x);
 	y_parse = floor(y);
-	printf("Floor x: %d\nFloor y: %d\n", x_parse, y_parse);
-	if (!cube->map.map[y_parse][x_parse] || cube->map.map[y_parse][x_parse] == '1')
-	{
-		printf("XMEN!\n");
+	if (!cube->map.map[y_parse][x_parse] || \
+		cube->map.map[y_parse][x_parse] == '1')
 		return (1);
-	}
 	return (0);
 }

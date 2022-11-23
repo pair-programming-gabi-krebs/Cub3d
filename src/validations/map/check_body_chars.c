@@ -6,7 +6,7 @@
 /*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 05:23:59 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/11/16 20:24:38 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/22 23:24:06 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ void	check_body_chars(t_cube *cube)
 		while (cube->map.map[i][j])
 		{
 			if (!check_valid_map_chars(cube->map.map[i][j]))
-			{
-				printf("Achei i: %d | j: %d | chr: '%d'\n", i, j, cube->map.map[i][j]);
 				ft_exit(cube, WRONG_CHAR);
-			}
 			if (cube->map.map[i][j] == 'N' || cube->map.map[i][j] == 'S' \
 				|| cube->map.map[i][j] == 'E' || cube->map.map[i][j] == 'W')
 				player++;
