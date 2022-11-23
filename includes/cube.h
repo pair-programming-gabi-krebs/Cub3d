@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/11/23 01:12:09 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/23 04:11:09 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@
 # define ARROW_RIGHT 65363
 # define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 600
-# define NUM_RAYS 300
+# define NUM_RAYS 100
 
 # define TESTE_IMG "./assets/teste.xpm"
 # define PAREDE "./assets/parede.xpm"
@@ -110,16 +110,16 @@ typedef struct s_cube
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
-	long		horz_x_step;
-	long		vert_x_step;
-	long		horz_y_step;
-	long		vert_y_step;
-	long		x_intercept;
-	long		y_intercept;
-	long		horz_hit_x;
-	long		horz_hit_y;
-	long		vert_hit_x;
-	long		vert_hit_y;
+	double		horz_x_step;
+	double		vert_x_step;
+	double		horz_y_step;
+	double		vert_y_step;
+	double		x_intercept;
+	double		y_intercept;
+	double		horz_hit_x;
+	double		horz_hit_y;
+	double		vert_hit_x;
+	double		vert_hit_y;
 	int			horz_has_hit_wall;
 	int			vert_has_hit_wall;
 	double		next_horz_hit_y;

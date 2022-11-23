@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_horz_steps.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 00:07:42 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/23 01:05:06 by lkrebs-l         ###   ########.fr       */
+/*   Updated: 2022/11/23 04:54:27 by gcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
 void	calculate_horz_steps(t_cube *cube, double ray_angle, int i)
-{
-	cube->y_intercept = floor(cube->player.pos_y / TILE_SIZE) * TILE_SIZE;
+{	
+	cube->y_intercept = floor(cube->player.pos_y) * TILE_SIZE;
 	if (cube->rays[i].facing_down)
+	{
 		cube->y_intercept += TILE_SIZE;
-	cube->x_intercept = cube->player.pos_x + \
-		(cube->y_intercept - cube->player.pos_y) / tan(ray_angle);
+	}	
+	cube->x_intercept = (cube->player.pos_x * TILE_SIZE) + \
+		(cube->y_intercept - (cube->player.pos_y * TILE_SIZE)) / tan(ray_angle);
 	cube->horz_y_step = TILE_SIZE;
 	if (cube->rays[i].facing_up)
 		cube->horz_y_step *= -1;
