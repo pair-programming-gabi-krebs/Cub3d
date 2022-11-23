@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   normalize_angle.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 22:44:10 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/22 04:19:04 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/11/23 00:17:55 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-double	normalize_angle(double ray)
+double	normalize_angle(double angle)
 {
-	ray = remainder(ray, M_PI * 2);
-	if (ray < 0)
-		ray = M_PI * 2 + ray;
-	return (ray);
+	angle = remainder(angle, TWO_PI);
+	if (angle < 0)
+		angle = TWO_PI + angle;
+	return (angle);
 }
