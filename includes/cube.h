@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:54:44 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/11/22 04:46:33 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/11/23 01:12:09 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 # define WRONG_MAP "Enter a valid map"
 # define WRONG_CHAR "The map must only contain valid chars"
 # define WRONG_PLAYER "The map must contain one player"
-# define M_PI 3.14159265358979323846
+# define PI 3.14159265
+# define TWO_PI 6.28318530
 # define MAX_INT 2147483647
 # define NO "NO"
 # define SO "SO"
@@ -109,8 +110,10 @@ typedef struct s_cube
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
-	long		x_step;
-	long		y_step;
+	long		horz_x_step;
+	long		vert_x_step;
+	long		horz_y_step;
+	long		vert_y_step;
 	long		x_intercept;
 	long		y_intercept;
 	long		horz_hit_x;
@@ -169,7 +172,7 @@ int		render_player(t_cube *cube);
 int		update_player(t_cube *cube);
 void	cast_all_rays(t_cube *cube);
 void	cast_ray(t_cube *cube, double ray, int i);
-double	normalize_angle(double ray);
+double	normalize_angle(double angle);
 void	get_ray_direction(t_cube *cube, double ray, int i);
 void	calculate_horz_steps(t_cube *cube, double ray, int i);
 void	calculate_vert_steps(t_cube *cube, double ray, int i);
@@ -196,7 +199,6 @@ int		strict_strcmp(const char *s1, const char *s2);
 double	deg_to_rad(double degree);
 void	draw_line(t_cube *cube, double begin_x, double begin_y, double end_x, double end_y);
 int		ft_is_space(unsigned int i, char *s);
-int		ft_striteri_check(char *s, int (*f)(unsigned int, char *));
 void	free_matrix(char **matrix);
 int		is_wall(t_cube *cube, double x, double y);
 

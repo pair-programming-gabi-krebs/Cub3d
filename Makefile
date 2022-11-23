@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 01:36:33 by gcosta-d          #+#    #+#              #
-#    Updated: 2022/11/22 04:43:42 by gcosta-d         ###   ########.fr        #
+#    Updated: 2022/11/23 00:11:50 by lkrebs-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,6 @@ FILES = main.c \
 		get_colors.c \
 		get_map.c \
 		ft_is_space.c \
-		ft_striteri_check.c \
 		check_body.c \
 		check_around_spaces.c \
 		check_first_row.c \
