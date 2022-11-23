@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_horz_hits.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:03:14 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/22 05:04:36 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/11/23 01:04:51 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	find_horz_hits(t_cube *cube, int i)
 		cube->x_check = cube->next_horz_hit_x;
 		cube->y_check = cube->next_horz_hit_y;
 		if (cube->rays[i].facing_up)
-			cube->y_check += -1;
+			cube->y_check -= 1;
 		if (map_has_wall_at(cube->map.map, cube->x_check, cube->y_check))
 		{
 			store_hit_wall_value(cube);
@@ -33,8 +33,8 @@ void	find_horz_hits(t_cube *cube, int i)
 		}
 		else
 		{
-			cube->next_horz_hit_x += cube->x_step;
-			cube->next_horz_hit_y += cube->y_step;
+			cube->next_horz_hit_x += cube->horz_x_step;
+			cube->next_horz_hit_y += cube->horz_y_step;
 		}
 	}
 }
