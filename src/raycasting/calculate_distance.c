@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_distance.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lkrebs-l <lkrebs-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:08:10 by lkrebs-l          #+#    #+#             */
-/*   Updated: 2022/11/22 05:37:00 by gcosta-d         ###   ########.fr       */
+/*   Updated: 2022/11/22 23:20:45 by lkrebs-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static double	get_horz_hit_distance(t_cube *cube)
 		horz_hit_distance = distance_between_points(cube, cube->horz_hit_x, \
 			cube->horz_hit_y);
 	}
-	else
-		horz_hit_distance = WINDOW_WIDTH;
+	else // 2000 is temporary
+		horz_hit_distance = 2000;
 	return (horz_hit_distance);
 }
 
@@ -53,8 +53,8 @@ static double	get_vert_hit_distance(t_cube *cube)
 		vert_hit_distance = distance_between_points(cube, cube->vert_hit_x, \
 			cube->vert_hit_y);
 	}
-	else
-		vert_hit_distance = WINDOW_HEIGHT;
+	else // this 2000 is temporary
+		vert_hit_distance = 2000;
 	return (vert_hit_distance);
 }
 
